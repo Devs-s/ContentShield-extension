@@ -1,0 +1,55 @@
+{
+  "manifest_version": 2,
+  "name": "Content Shield",
+  "version": "1.0.0",
+  "description": "A powerful content filtering extension to protect your browsing experience and block inappropriate websites.",
+  
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "scripts": ["utils.js", "background.js"],
+    "persistent": false
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["utils.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Content Shield"
+  },
+  
+  "options_page": "options.html",
+  
+  "icons": {
+    "16": "imgs/icon16.png",
+    "32": "imgs/icon32.png",
+    "48": "imgs/icon48.png",
+    "128": "imgs/icon128.png"
+  },
+  
+  "web_accessible_resources": [
+    "blocked.html",
+    "blocked.css",
+    "blocked.js"
+  ],
+  
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  
+  "safari": {
+    "strict_min_version": "14.0"
+  }
+}

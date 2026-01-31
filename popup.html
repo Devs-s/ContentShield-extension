@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Shield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-section">
+        <img src="icons/icon48.png" alt="Content Shield" class="logo">
+        <h1 class="title">Content Shield</h1>
+      </div>
+      <div class="status-indicator">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status" id="status">Loading...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Statistics Section -->
+    <section class="section stats-section">
+      <h2 class="section-title">Protection Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="totalBlocked">0</div>
+          <div class="stat-label">Total Blocked</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="todayBlocked">0</div>
+          <div class="stat-label">Blocked Today</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Site Section -->
+    <section class="section current-site-section">
+      <h2 class="section-title">Current Site</h2>
+      <div class="current-site-info">
+        <div class="site-details">
+          <div class="site-domain" id="currentSite">Loading...</div>
+          <div class="site-status" id="siteStatus"></div>
+        </div>
+        <button class="btn btn-secondary btn-small" id="whitelistBtn" style="display: none;">
+          Add to Whitelist
+        </button>
+      </div>
+    </section>
+
+    <!-- Recent Blocked Section -->
+    <section class="section recent-section">
+      <div class="section-header">
+        <h2 class="section-title">Recent Blocks</h2>
+        <button class="btn-link" id="viewAllBtn">View All</button>
+      </div>
+      <div class="recent-blocked-list" id="recentBlockedList">
+        <div class="loading">Loading...</div>
+      </div>
+    </section>
+
+    <!-- Quick Actions Section -->
+    <section class="section actions-section">
+      <h2 class="section-title">Quick Actions</h2>
+      <div class="action-buttons">
+        <button class="btn btn-primary" id="toggleBtn">
+          Toggle Protection
+        </button>
+        <button class="btn btn-secondary" id="settingsBtn">
+          ⚙️ Settings
+        </button>
+      </div>
+    </section>
+
+    <!-- Additional Actions -->
+    <section class="section additional-actions">
+      <div class="action-links">
+        <button class="btn-link" id="statsBtn">📊 View Statistics</button>
+        <button class="btn-link" id="resetStatsBtn">🔄 Reset Stats</button>
+        <button class="btn-link" id="reportBtn">🚩 Report Site</button>
+        <button class="btn-link" id="feedbackBtn">💬 Send Feedback</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="footer-text">Content Shield v1.0</span>
+      <span class="footer-separator">•</span>
+      <span class="footer-text">Keeping your browsing safe</span>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

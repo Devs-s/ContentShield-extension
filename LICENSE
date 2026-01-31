@@ -1,0 +1,1169 @@
+# DEVS SOFTWARE AND HARDWARE LICENSE AGREEMENT
+
+**Version 1.0**  
+**Effective Date: January 12, 2026**
+
+---
+
+## 1. DEFINITIONS
+
+**1.1** "Devs" refers to Devs Corporation and its affiliates, subsidiaries, partners, authorized distributors, resellers, and representatives.
+
+**1.2** "Licensed Products" means all software programs, applications, utilities, tools, firmware, drivers, middleware, development kits, APIs, libraries, frameworks, and physical hardware components including but not limited to PC parts, processors, graphics cards, motherboards, memory modules, storage devices, cooling systems, power supplies, peripherals, accessories, and computing devices manufactured, distributed, sold, or licensed by Devs.
+
+**1.3** "You" or "Licensee" refers to the individual, corporation, partnership, organization, educational institution, government entity, or other legal entity that has acquired, downloaded, purchased, leased, or otherwise obtained Licensed Products from Devs or its authorized channels.
+
+**1.4** "Documentation" means any user guides, technical manuals, API documentation, specifications, white papers, installation guides, troubleshooting guides, video tutorials, or other materials provided by Devs relating to Licensed Products.
+
+**1.5** "Authorized Device" means a single physical or virtual computer, workstation, server, mobile device, embedded system, or other computing device on which Licensed Products are installed, activated, or used.
+
+**1.6** "Educational Software" means any software tools, trainers, debuggers, memory editors, or analysis programs developed by Devs for educational, research, security testing, or academic purposes only.
+
+**1.7** "Source Code" means the human-readable form of software code, including all comments, documentation, and related development materials.
+
+**1.8** "End User" means the final user of Licensed Products who is not reselling or redistributing such products.
+
+**1.9** "Commercial Use" means use of Licensed Products in any business, commercial enterprise, for-profit activity, or revenue-generating operation.
+
+**1.10** "Confidential Information" means any proprietary or non-public information disclosed by Devs, including trade secrets, technical specifications, roadmaps, pricing, and business strategies.
+
+---
+
+## 2. GRANT OF LICENSE
+
+**2.1 Software License**  
+Subject to the terms of this Agreement, Devs grants you a limited, non-exclusive, non-transferable, revocable license to install and use Licensed Software Products solely for your internal business, educational, research, or personal purposes on Authorized Devices in accordance with the license tier you have purchased.
+
+**2.2 Hardware License**  
+Purchase of Devs hardware components grants you ownership of the physical hardware, subject to the warranty terms and restrictions outlined in this Agreement. Firmware, embedded software, microcode, and BIOS/UEFI software in hardware remain licensed, not sold, and are subject to the software license terms herein.
+
+**2.3 License Tiers**
+
+**2.3.1 Personal License**
+- Installation on up to three (3) Authorized Devices per license key
+- Use by a single user or household
+- Non-commercial purposes only
+- No redistribution rights
+
+**2.3.2 Professional License**
+- Installation on up to ten (10) Authorized Devices
+- Commercial use permitted for individual contractors or small teams (up to 5 users)
+- Limited redistribution of runtime components as specified in Documentation
+- Technical support included
+
+**2.3.3 Enterprise License**
+- Unlimited installations within a single organization
+- Full commercial use rights
+- Site-wide deployment permitted
+- Priority technical support and dedicated account management
+- Beta access to new features
+- Custom integration support available
+
+**2.3.4 Educational License**
+- Special pricing for accredited educational institutions
+- Installation on classroom and lab computers
+- Use restricted to educational and non-commercial research purposes
+- Student projects permitted under supervision
+
+**2.3.5 OEM License**
+- For hardware manufacturers bundling Devs software
+- Distribution rights as specified in separate OEM agreement
+- Custom branding options available
+
+**2.4 Trial and Evaluation Licenses**  
+Devs may offer time-limited trial versions with reduced functionality. Trial licenses automatically expire after the evaluation period and require purchase for continued use.
+
+**2.5 Open Source Components**  
+Some Licensed Products may include open source software components governed by separate licenses. Such components are licensed under their respective terms, which are provided in the Documentation.
+
+---
+
+## 3. LICENSE RESTRICTIONS
+
+You may NOT:
+
+**3.1** Reverse engineer, decompile, disassemble, or attempt to derive source code from any Licensed Software Products, except where such restriction is prohibited by applicable law or where explicitly permitted for Educational Software as described in Section 5.
+
+**3.2** Modify, adapt, translate, or create derivative works based on Licensed Products without express written permission from Devs, except for configuration files and user-created content as permitted in Documentation.
+
+**3.3** Remove, alter, obscure, or tamper with any proprietary notices, labels, watermarks, serial numbers, security seals, or authentication marks on Licensed Products.
+
+**3.4** Rent, lease, lend, sell, redistribute, sublicense, or transfer Licensed Products to any third party without written authorization, except for permitted runtime component redistribution under Professional or Enterprise licenses.
+
+**3.5** Use Licensed Products to develop, test, or deploy competing products or services that directly compete with Devs' offerings.
+
+**3.6** Use Licensed Products in any manner that violates applicable laws, regulations, export controls, sanctions, or third-party rights including intellectual property rights, privacy rights, or contractual obligations.
+
+**3.7** Bypass, disable, circumvent, crack, or otherwise interfere with any security features, license validation mechanisms, digital rights management (DRM), access controls, usage limits, or anti-tampering protections in Licensed Products.
+
+**3.8** Use Licensed Software Products on cloud computing platforms, virtual environments, containerized deployments, or distributed systems for the purpose of offering them as a service to third parties without an appropriate Enterprise or Commercial license.
+
+**3.9** Share, publish, or disclose license keys, activation codes, authentication credentials, or other access mechanisms to unauthorized parties.
+
+**3.10** Use Licensed Products in life-critical, safety-critical, or mission-critical systems including but not limited to medical devices, nuclear facilities, aircraft navigation, military weapons systems, or emergency services without obtaining specific written authorization and appropriate safety certifications.
+
+**3.11** Benchmark, performance test, or publish comparative analyses of Licensed Products without prior written approval from Devs.
+
+**3.12** Use automated systems, bots, scripts, or other means to access, download, or interact with Licensed Products in ways that exceed normal human usage patterns or that place unreasonable burden on Devs' infrastructure.
+
+**3.13** Combine Licensed Products with GPL-licensed software in ways that would require disclosure of Devs' proprietary source code, unless explicitly permitted.
+
+**3.14** Use Licensed Products to mine cryptocurrency, conduct distributed computing projects, or perform intensive computational tasks unrelated to the product's intended purpose without appropriate licensing.
+
+---
+
+## 4. EDUCATIONAL SOFTWARE USAGE RESTRICTIONS
+
+**4.1 Scope of Educational Software**  
+Devs develops certain software tools including but not limited to game trainers, memory editors, debuggers, reverse engineering tools, security analysis utilities, and exploit development frameworks (collectively "Educational Software") strictly for legitimate educational, academic research, cybersecurity training, software development, vulnerability assessment, and security testing purposes.
+
+**4.2 Permitted Educational Uses**  
+Educational Software may ONLY be used for:
+- Computer science education and academic research at accredited institutions
+- Learning about software architecture, memory management, and program analysis
+- Cybersecurity training and ethical hacking certification programs
+- Personal skill development in software security and reverse engineering
+- Authorized penetration testing and security audits
+- Development and testing of anti-cheat systems and security measures
+- Bug bounty programs where explicitly authorized
+- Security research published in peer-reviewed academic venues
+
+**4.3 Strictly Prohibited Uses**  
+You expressly agree that Educational Software shall NOT be used for:
+- Cheating in online or multiplayer games, competitive gaming, esports, or ranked matches
+- Gaining unfair advantages in any gaming platform or service
+- Circumventing anti-cheat systems for competitive purposes
+- Violating terms of service of any game, application, or online service
+- Creating, distributing, or selling cheats, hacks, or exploits to others
+- Unauthorized access to computer systems, networks, or accounts
+- Any illegal activity including fraud, theft of virtual goods, account compromise, or harassment
+- Commercial exploitation of game vulnerabilities or security flaws
+- Disrupting online gaming communities or degrading user experiences
+
+**4.4 Educational Certification**  
+To obtain access to Educational Software, you may be required to:
+- Provide proof of enrollment at an accredited educational institution, OR
+- Present professional credentials in cybersecurity or software development, OR
+- Complete Devs' Security Researcher Verification Program, OR
+- Provide documentation of legitimate research purposes
+
+**4.5 Monitoring and Enforcement**  
+Devs reserves the right to:
+- Monitor usage patterns of Educational Software for compliance
+- Immediately revoke licenses upon detection of misuse
+- Report violations to appropriate authorities including game publishers and law enforcement
+- Pursue legal action including injunctive relief and damages for violations
+- Collaborate with anti-cheat companies to detect and prevent misuse
+
+**4.6 Acknowledgment and Certification**  
+By using Educational Software, you explicitly certify that:
+- You understand the ethical and legal implications of such tools
+- You will use them solely for authorized educational purposes
+- You will not assist others in misusing such tools
+- You acknowledge that misuse may result in criminal prosecution
+- You accept full responsibility for compliance with all applicable laws and terms of service
+
+**4.7 Indemnification for Educational Software**  
+You agree to indemnify and hold Devs harmless from any claims, damages, losses, or legal actions arising from your misuse of Educational Software, including but not limited to violations of game terms of service, anti-cheat system violations, or legal actions by third parties.
+
+---
+
+## 5. INTELLECTUAL PROPERTY RIGHTS
+
+**5.1 Ownership**  
+All Licensed Products, including software, firmware, designs, algorithms, patents, copyrights, trademarks, trade secrets, trade dress, know-how, and all intellectual property rights therein, remain the exclusive property of Devs. This Agreement does not transfer any ownership rights to you. Your rights are limited to those expressly granted in this Agreement.
+
+**5.2 Trademarks**  
+The Devs name, logo, product names, and all related marks, slogans, and service marks are trademarks or registered trademarks of Devs. You may not use these marks without prior written consent, except for factual references to Licensed Products in accordance with fair use principles.
+
+**5.3 Patents**  
+Licensed Products may be covered by patents owned by or licensed to Devs. This Agreement does not grant any patent licenses except as necessary to use Licensed Products in accordance with this Agreement.
+
+**5.4 Feedback and Suggestions**  
+Any suggestions, ideas, enhancement requests, feedback, recommendations, bug reports, or other information you provide regarding Licensed Products (collectively "Feedback") may be used by Devs without any obligation of compensation, attribution, confidentiality, or accounting. You hereby assign all rights, title, and interest in such Feedback to Devs.
+
+**5.5 User-Generated Content**  
+If Licensed Products enable you to create content, configurations, mods, plugins, or extensions ("User Content"), you retain ownership of such User Content but grant Devs a worldwide, non-exclusive, royalty-free license to use, reproduce, and display such content for purposes of operating, promoting, and improving Licensed Products.
+
+**5.6 Copyright Protection**  
+Licensed Products are protected by copyright laws and international copyright treaties. Unauthorized reproduction or distribution of Licensed Products, or any portion thereof, may result in severe civil and criminal penalties.
+
+---
+
+## 6. HARDWARE WARRANTY AND SUPPORT
+
+**6.1 Limited Hardware Warranty**  
+Devs warrants that hardware products will be free from defects in materials and workmanship under normal use for a period of:
+- Standard Components: One (1) year from date of purchase
+- Premium/Gaming Components: Two (2) years from date of purchase
+- Enterprise/Server Components: Three (3) years from date of purchase
+- Extended Warranties: Available for purchase separately
+
+**6.2 Warranty Registration**  
+To activate extended warranty coverage, you must register your hardware products within thirty (30) days of purchase at devs.com/register.
+
+**6.3 Warranty Exclusions**  
+This warranty does not cover:
+- Damage caused by accident, abuse, misuse, improper installation, unauthorized modifications, overclocking beyond specified limits, flood, fire, earthquake, lightning, or other external causes
+- Damage caused by operating the product outside published specifications or environmental guidelines
+- Damage caused by service, repair, or modification performed by unauthorized repair facilities or personnel
+- Normal wear and tear including scratches, dents, and cosmetic damage that does not affect functionality
+- Products that have been modified, altered, or have had serial numbers removed or defaced
+- Consumable parts including thermal paste, fans (after 90 days), and batteries
+- Software issues, driver problems, or compatibility issues with third-party products
+- Damage caused by improper power supply, electrical surges, or inadequate cooling
+- Products used for cryptocurrency mining or other intensive 24/7 operations beyond consumer specifications
+
+**6.4 Warranty Claim Process**  
+To make a warranty claim:
+1. Contact Devs Technical Support with proof of purchase and serial number
+2. Complete the RMA (Return Merchandise Authorization) request form
+3. Ship the defective product to Devs' designated service center using provided instructions
+4. Devs will inspect the product within 10 business days
+5. If claim is approved, product will be repaired or replaced and returned within 30 days
+
+**6.5 Warranty Remedies**  
+Your exclusive remedy under this warranty is, at Devs' sole option:
+- Repair of the defective hardware product using new or refurbished parts
+- Replacement with a new or refurbished product of equal or greater value
+- Refund of the purchase price minus a depreciation allowance based on age and usage
+
+**6.6 Advanced Replacement Service**  
+Enterprise customers may purchase Advanced Replacement Service, which provides next-business-day shipment of replacement hardware before return of defective products.
+
+**6.7 International Warranty**  
+Warranty service is only available in the country of original purchase unless you have purchased International Warranty Coverage. Products must be returned to service centers in the purchase country.
+
+---
+
+## 7. SOFTWARE SUPPORT AND MAINTENANCE
+
+**7.1 Software Updates**  
+Devs may provide updates, patches, bug fixes, security updates, or new versions of Licensed Software Products. Such updates may be:
+- Automatically downloaded and installed on your Authorized Devices
+- Made available through the Devs Update Manager
+- Delivered through subscription-based update services
+- Required for continued use of online features or license validation
+
+**7.2 Update Types**
+
+**7.2.1 Critical Security Updates**  
+Security patches addressing vulnerabilities will be provided to all active licensees regardless of support status.
+
+**7.2.2 Feature Updates**  
+New features and major version upgrades may require:
+- Active maintenance subscription
+- Upgrade fee payment
+- Migration to newer license terms
+
+**7.2.3 Compatibility Updates**  
+Updates to maintain compatibility with operating system updates, hardware changes, or third-party software.
+
+**7.3 Technical Support**
+
+**7.3.1 Community Support (Free)**
+- Access to community forums and knowledge base
+- User-generated documentation and tutorials
+- Email support with 5-7 business day response time
+
+**7.3.2 Standard Support (Included with Professional)**
+- Email and chat support with 2-3 business day response
+- Access to technical documentation
+- Bug fix priority
+- Phone support during business hours
+
+**7.3.3 Premium Support (Enterprise)**
+- 24/7 phone, email, and chat support
+- 4-hour response time for critical issues
+- Dedicated support engineer
+- Remote assistance and on-site support options
+- Access to beta programs and early releases
+
+**7.4 End of Life Policy**  
+Devs will provide notice at least six (6) months before discontinuing support for any Licensed Product version. After end-of-life date:
+- No further updates will be provided
+- Technical support will not be available
+- License validation may cease to function
+- Migration tools to newer versions may be offered
+
+**7.5 Compatibility**  
+Devs does not guarantee that updates will maintain compatibility with:
+- Unsupported operating systems or hardware configurations
+- Third-party software, plugins, or extensions
+- Custom modifications or configurations
+- Legacy file formats or data structures
+
+---
+
+## 8. DATA COLLECTION, PRIVACY, AND SECURITY
+
+**8.1 Telemetry and Analytics**  
+Licensed Products may collect and transmit the following data to Devs:
+- Technical specifications of hardware and software environment
+- Usage statistics, feature utilization, and performance metrics
+- Diagnostic information, error reports, and crash dumps
+- License validation and activation status
+- Network connectivity and communication patterns
+- Aggregated and anonymized user behavior data
+
+**8.2 Personal Information**  
+Collection, storage, processing, and use of personal information is governed by the Devs Privacy Policy, available at devs.com/privacy, which is incorporated into this Agreement by reference.
+
+**8.3 Data Usage**  
+Collected data may be used to:
+- Improve product quality, performance, and user experience
+- Provide customer support and troubleshooting
+- Validate licenses and prevent unauthorized use
+- Conduct research and development
+- Create aggregated statistical reports
+- Comply with legal obligations
+
+**8.4 Data Sharing**  
+Devs may share collected data with:
+- Service providers and contractors under confidentiality obligations
+- Law enforcement or regulatory authorities when legally required
+- Acquiring companies in the event of merger or acquisition
+- Third-party analytics providers on an anonymized basis
+
+**8.5 Security Measures**  
+Devs implements industry-standard security measures including:
+- Encryption of data in transit and at rest
+- Regular security audits and penetration testing
+- Access controls and authentication mechanisms
+- Incident response and breach notification procedures
+
+**8.6 Opt-Out Options**  
+You may opt out of certain non-essential data collection through settings within Licensed Products. However, opting out may:
+- Limit functionality or features
+- Prevent access to online services
+- Disable automatic updates
+- Reduce quality of technical support
+
+**8.7 Data Retention**  
+Devs retains collected data for as long as necessary to fulfill the purposes outlined above, typically no longer than three (3) years, unless required by law or legitimate business purposes.
+
+**8.8 User Rights**  
+Depending on your jurisdiction, you may have rights to:
+- Access your personal data
+- Request correction or deletion
+- Object to processing
+- Export your data
+- Withdraw consent
+Contact privacy@devs.com to exercise these rights.
+
+---
+
+## 9. PAYMENT, FEES, AND BILLING
+
+**9.1 License Fees**  
+Licensed Products may require payment of:
+- One-time perpetual license fees
+- Annual subscription fees
+- Monthly recurring charges
+- Usage-based fees
+- Support and maintenance fees
+- Upgrade and migration fees
+
+**9.2 Payment Methods**  
+Accepted payment methods include:
+- Credit and debit cards
+- PayPal and digital payment services
+- Wire transfer (for Enterprise licenses)
+- Purchase orders (for approved business accounts)
+- Cryptocurrency (Bitcoin, Ethereum) for select products
+
+**9.3 Billing and Invoicing**
+
+**9.3.1 Subscription Billing**  
+Subscription-based licenses will automatically renew at the end of each billing period unless canceled at least five (5) days prior to renewal date. You authorize Devs to charge your payment method for renewal fees.
+
+**9.3.2 Price Changes**  
+Devs reserves the right to modify pricing with thirty (30) days' notice. Price changes will take effect at your next renewal. Continued use after price change constitutes acceptance.
+
+**9.3.3 Invoices**  
+Enterprise customers will receive invoices via email. Payment is due within thirty (30) days of invoice date unless otherwise specified in your agreement.
+
+**9.4 Taxes and Duties**  
+You are responsible for all applicable:
+- Sales tax, use tax, and value-added tax (VAT)
+- Import duties and customs fees
+- Withholding taxes
+- Other governmental charges
+If you are tax-exempt, you must provide valid exemption certificates.
+
+**9.5 Late Payments**  
+Late payments may result in:
+- Suspension of license access
+- Late fees of 1.5% per month or maximum allowed by law
+- Collection agency referral
+- Legal action to recover amounts owed
+
+**9.6 Refund Policy**
+
+**9.6.1 Software Refunds**  
+Software purchases may be refunded within thirty (30) days if:
+- Product fails to perform as described in Documentation
+- Technical issues prevent use despite support efforts
+- Request is made before substantial use (>10 hours runtime)
+
+**9.6.2 Hardware Refunds**  
+Hardware may be returned within thirty (30) days for full refund if:
+- Product is unopened and in original packaging, OR
+- Product is defective and cannot be repaired, OR
+- Product was shipped incorrectly
+
+**9.6.3 Subscription Refunds**  
+Subscription fees are non-refundable except where required by law. Upon cancellation, service continues until end of current billing period.
+
+**9.6.4 Restocking Fees**  
+Opened hardware returns may be subject to a 15% restocking fee unless product is defective.
+
+---
+
+## 10. THIRD-PARTY SOFTWARE AND SERVICES
+
+**10.1 Third-Party Components**  
+Licensed Products may include or interact with third-party software, libraries, frameworks, or services governed by separate license agreements. You must comply with all such third-party licenses.
+
+**10.2 Open Source Software**  
+Open source components are provided under their respective licenses (MIT, Apache, GPL, etc.). Full text of applicable open source licenses is available at devs.com/opensource or in the product documentation.
+
+**10.3 Third-Party Services**  
+Features requiring third-party services (cloud storage, social media integration, payment processing) are subject to those providers' terms and privacy policies. Devs is not responsible for third-party service availability or practices.
+
+**10.4 No Warranty for Third-Party Content**  
+Devs makes no warranties regarding third-party software or services and disclaims all liability for their performance, security, or availability.
+
+---
+
+## 11. TERM AND TERMINATION
+
+**11.1 Term**  
+This Agreement remains in effect from the date you first use Licensed Products until terminated by either party as provided herein.
+
+**11.2 Termination by You**  
+You may terminate this Agreement at any time by:
+- Ceasing all use of Licensed Products
+- Uninstalling all software from Authorized Devices
+- Destroying or returning all copies in your possession
+- Canceling subscription services
+- Requesting account deletion at devs.com/account
+
+**11.3 Termination by Devs**  
+Devs may terminate this Agreement immediately without notice if you:
+- Breach any material term of this Agreement
+- Fail to pay fees when due
+- Use Licensed Products for illegal purposes
+- Engage in license key piracy or distribution
+- Misuse Educational Software as described in Section 4
+- Damage Devs' reputation or business interests
+- Fail to comply with export control regulations
+
+**11.4 Termination for Convenience**  
+Devs may terminate licenses for convenience with ninety (90) days' written notice.
+
+**11.5 Effect of Termination**  
+Upon termination:
+- All license rights immediately cease
+- You must immediately stop using Licensed Products
+- You must uninstall all software and destroy all copies
+- You must return or destroy all Documentation and Confidential Information
+- Devs may disable license keys and prevent activation
+- Outstanding payment obligations become immediately due
+- You remain liable for any breaches occurring before termination
+
+**11.6 Survival**  
+The following sections survive termination: Sections 4, 5, 9, 10, 12, 13, 14, 15, 16, and 17.
+
+**11.7 No Refund Upon Termination**  
+Except as required by law, no refunds will be provided for fees paid prior to termination by Devs.
+
+---
+
+## 12. DISCLAIMER OF WARRANTIES
+
+**12.1 AS-IS Provision**  
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LICENSED PRODUCTS ARE PROVIDED "AS IS," "AS AVAILABLE," AND "WITH ALL FAULTS" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
+
+**12.2 Disclaimer of Implied Warranties**  
+DEVS SPECIFICALLY DISCLAIMS ALL IMPLIED WARRANTIES INCLUDING BUT NOT LIMITED TO:
+- IMPLIED WARRANTIES OF MERCHANTABILITY
+- IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE
+- IMPLIED WARRANTIES OF TITLE
+- IMPLIED WARRANTIES OF NON-INFRINGEMENT
+- IMPLIED WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE
+
+**12.3 No Guarantee of Performance**  
+DEVS DOES NOT WARRANT THAT LICENSED PRODUCTS WILL:
+- Be error-free, uninterrupted, or completely secure
+- Meet your requirements or expectations
+- Be compatible with all hardware or software configurations
+- Operate without bugs, defects, or vulnerabilities
+- Remain available or supported indefinitely
+- Achieve any particular level of performance or results
+
+**12.4 Risk Assumption**  
+YOU ASSUME ALL RISK ASSOCIATED WITH:
+- Selection, use, and performance of Licensed Products
+- Results obtained from use of Licensed Products
+- Data loss, corruption, or security breaches
+- Compatibility issues with your systems
+- Downtime or business interruption
+
+**12.5 Downloaded Content**  
+LICENSED PRODUCTS AND UPDATES DOWNLOADED FROM THE INTERNET MAY BE SUBJECT TO TRANSMISSION ERRORS, CORRUPTION, MALWARE, OR INTERCEPTION. DEVS IS NOT RESPONSIBLE FOR DAMAGES RESULTING FROM DOWNLOADING OR USING LICENSED PRODUCTS.
+
+**12.6 Legal Variations**  
+Some jurisdictions do not allow exclusion of implied warranties or limitations on how long an implied warranty lasts, so the above limitations may not apply to you. This warranty gives you specific legal rights, and you may also have other rights which vary by jurisdiction.
+
+---
+
+## 13. LIMITATION OF LIABILITY
+
+**13.1 Exclusion of Consequential Damages**  
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL DEVS, ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, SUPPLIERS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, PUNITIVE, OR STATUTORY DAMAGES, INCLUDING BUT NOT LIMITED TO:
+- Loss of profits, revenue, or business opportunities
+- Loss of data or information
+- Loss of use, goodwill, or reputation
+- Business interruption or downtime
+- Cost of substitute products or services
+- Personal injury or property damage
+- Wasted time or lost productivity
+ARISING OUT OF OR RELATING TO THIS AGREEMENT OR USE OF LICENSED PRODUCTS, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+**13.2 Cap on Direct Damages**  
+DEVS' TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT OR LICENSED PRODUCTS, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHERWISE, SHALL NOT EXCEED THE GREATER OF:
+- THE AMOUNT YOU PAID TO DEVS FOR THE SPECIFIC LICENSED PRODUCT GIVING RISE TO THE CLAIM IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR
+- ONE HUNDRED DOLLARS ($100 USD)
+
+**13.3 Essential Purpose**  
+YOU ACKNOWLEDGE THAT THE LIMITATIONS OF LIABILITY IN THIS SECTION 13 ARE ESSENTIAL ELEMENTS OF THE BARGAIN BETWEEN YOU AND DEVS, AND DEVS WOULD NOT PROVIDE LICENSED PRODUCTS WITHOUT THESE LIMITATIONS.
+
+**13.4 Basis of the Bargain**  
+THE LIMITED WARRANTY, EXCLUSIVE REMEDIES, AND LIMITED LIABILITY SET FORTH ABOVE ARE FUNDAMENTAL ELEMENTS OF THE BASIS OF THE AGREEMENT BETWEEN DEVS AND YOU. THE PRICING OF LICENSED PRODUCTS REFLECTS THIS ALLOCATION OF RISK.
+
+**13.5 Exceptions**  
+The limitations in this Section 13 do not apply to:
+- Liability for death or personal injury caused by Devs' negligence
+- Liability for fraud or fraudulent misrepresentation
+- Liability for gross negligence or willful misconduct
+- Any other liability that cannot be excluded or limited by applicable law
+- Your indemnification obligations under Section 14
+
+**13.6 Jurisdictional Variations**  
+Some jurisdictions do not allow the exclusion or limitation of certain warranties or liabilities, so the above limitations may not apply to you in their entirety. In such cases, Devs' liability shall be limited to the maximum extent permitted by law.
+
+---
+
+## 14. INDEMNIFICATION
+
+**14.1 Your Indemnification Obligations**  
+You agree to indemnify, defend, and hold harmless Devs and its parent company, subsidiaries, affiliates, officers, directors, employees, agents, partners, licensors, suppliers, and contractors (collectively "Devs Parties") from and against any and all claims, demands, actions, damages, losses, costs, liabilities, settlements, judgments, fines, and expenses (including reasonable attorneys' fees, expert fees, and court costs) arising from or related to:
+- Your use or misuse of Licensed Products
+- Your violation of this Agreement
+- Your violation of any applicable law, regulation, or third-party right
+- Your negligence or willful misconduct
+- Misuse of Educational Software in violation of Section 4
+- Your User Content or any content you submit through Licensed Products
+- Infringement of any intellectual property or proprietary right
+- Any claim that your use of Licensed Products caused harm to a third party
+- Your breach of any representation or warranty in this Agreement
+
+**14.2 Procedure**  
+Devs will:
+- Provide prompt written notice of any claim
+- Grant you sole control of defense and settlement (with Devs' consent, not to be unreasonably withheld)
+- Provide reasonable assistance at your expense
+
+You must not settle any claim in a manner that admits fault on behalf of Devs or imposes obligations on Devs without prior written consent.
+
+**14.3 Devs' Right to Participate**  
+Devs reserves the right to assume exclusive defense and control of any matter subject to indemnification by you, in which case you will cooperate with Devs in asserting any available defenses.
+
+---
+
+## 15. EXPORT COMPLIANCE AND TRADE CONTROLS
+
+**15.1 Export Control Laws**  
+Licensed Products and related technical data may be subject to export control and trade sanctions laws and regulations including but not limited to:
+- U.S. Export Administration Regulations (EAR)
+- International Traffic in Arms Regulations (ITAR)
+- Economic sanctions administered by OFAC
+- EU export controls and sanctions
+- Regulations of other applicable jurisdictions
+
+**15.2 Your Obligations**  
+You represent and warrant that you:
+- Are not located in, under control of, or a national or resident of any country subject to U.S. or EU embargoes or sanctions
+- Are not listed on any government list of prohibited or restricted parties (including OFAC SDN List, BIS Denied Persons List, etc.)
+- Will not use Licensed Products for any purposes prohibited by export controls, including development of weapons of mass destruction
+- Will comply with all applicable export and import laws
+
+**15.3 Prohibited Destinations**  
+You will not export, re-export, transfer, or make Licensed Products available, directly or indirectly, to:
+- Any prohibited country, entity, or individual
+- Any end-user engaged in activities related to weapons proliferation
+- Any end-use or destination prohibited by applicable laws
+
+**15.4 Encryption Notice**  
+Licensed Products may contain encryption technology. Export of encryption technology may require export licenses or approvals from relevant authorities.
+
+**15.5 Notification**  
+You will immediately notify Devs if you become subject to any export-related restrictions or prohibitions.
+
+---
+
+## 16. CONFIDENTIALITY
+
+**16.1 Confidential Information**  
+"Confidential Information" means all non-public information disclosed by Devs, whether orally or in writing, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and circumstances of disclosure, including:
+- Technical specifications and documentation not publicly available
+- Source code, algorithms, and proprietary methodologies
+- Business plans, roadmaps, and strategies
+- Pricing information and financial data
+- Customer lists and partner information
+- Beta or pre-release software and features
+
+**16.2 Obligations**  
+You agree to:
+- Maintain confidentiality of all Confidential Information
+- Use Confidential Information only for purposes of this Agreement
+- Not disclose Confidential Information to third parties without prior written consent
+- Implement reasonable security measures to protect Confidential Information
+- Limit access to employees and contractors with a need to know
+
+**16.3 Exceptions**  
+Confidentiality obligations do not apply to information that:
+- Was publicly available at time of disclosure
+- Becomes publicly available through no fault of yours
+- Was independently developed by you without use of Confidential Information
+- Was rightfully received from a third party without confidentiality restrictions
+- Must be disclosed pursuant to law or court order (with prompt notice to Devs)
+
+**16.4 Duration**  
+Confidentiality obligations survive for five (5) years after disclosure or termination of this Agreement, whichever is later.
+
+---
+
+## 17. BETA AND PRE-RELEASE SOFTWARE
+
+**17.1 Beta Program**  
+Devs may offer access to beta, preview, early access, or pre-release versions of Licensed Products ("Beta Software"). Participation is voluntary and may require separate agreement to beta program terms.
+
+**17.2 Beta Software Characteristics**  
+Beta Software:
+- May contain bugs, errors, or defects
+- May not be feature-complete
+- May cause system crashes or data loss
+- May be significantly modified before general release
+- May never be released commercially
+- Is provided for testing and feedback purposes only
+
+**17.3 Additional Restrictions**  
+For Beta Software, you agree to:
+- Not use in production environments or mission-critical systems
+- Not rely on for business operations or critical functions
+- Provide feedback and bug reports to Devs
+- Not disclose features, performance, or other details publicly without permission
+- Accept that Beta Software may be discontinued at any time
+- Backup all data before use
+
+**17.4 No Warranty for Beta Software**  
+BETA SOFTWARE IS PROVIDED "AS IS" WITH ALL FAULTS AND WITHOUT ANY WARRANTY WHATSOEVER. ALL WARRANTIES, EXPRESS OR IMPLIED, ARE DISCLAIMED FOR BETA SOFTWARE.
+
+**17.5 Automatic Expiration**  
+Beta Software may automatically cease functioning after an expiration date or upon commercial release.
+
+---
+
+## 18. ANTI-CHEAT AND FAIR PLAY COMPLIANCE
+
+**18.1 Gaming Industry Cooperation**  
+Devs respects the gaming industry and fair play principles. We actively cooperate with:
+- Game developers and publishers
+- Anti-cheat solution providers
+- Gaming platform operators
+- Esports organizations
+- Law enforcement agencies investigating gaming-related fraud
+
+**18.2 Detection and Reporting**  
+Devs may implement systems to:
+- Detect misuse of Educational Software in gaming contexts
+- Report violations to affected game publishers
+- Share detection signatures with anti-cheat providers
+- Participate in industry-wide anti-cheat initiatives
+
+**18.3 License Revocation for Cheating**  
+If you use any Licensed Product to cheat in games, your licenses will be:
+- Immediately and permanently revoked without refund
+- Reported to relevant gaming platforms and publishers
+- Added to industry-wide ban databases where applicable
+
+**18.4 No Liability for Game Bans**  
+Devs is not responsible for any bans, suspensions, or penalties imposed by game publishers, platforms, or anti-cheat systems resulting from your misuse of Licensed Products.
+
+---
+
+## 19. AUDIT RIGHTS
+
+**19.1 Compliance Audits**  
+Devs reserves the right to audit your use of Licensed Products to ensure compliance with this Agreement. Audits may include:
+- Review of installation records and license deployment
+- Inspection of systems using Licensed Products
+- Verification of license key usage
+- Assessment of compliance with usage restrictions
+
+**19.2 Audit Process**  
+Devs will:
+- Provide at least thirty (30) days' written notice (except in cases of suspected fraud)
+- Conduct audits during normal business hours
+- Use qualified third-party auditors bound by confidentiality
+- Minimize disruption to your operations
+
+**19.3 Audit Cooperation**  
+You agree to:
+- Provide reasonable access to systems and records
+- Cooperate fully with audit procedures
+- Provide accurate and complete information
+- Remedy any non-compliance within thirty (30) days
+
+**19.4 Audit Findings**  
+If an audit reveals:
+- Under-licensing: You must purchase additional licenses within fifteen (15) days
+- Over 5% non-compliance: You pay for unlicensed copies plus audit costs
+- Willful violations: Devs may terminate all licenses and pursue legal action
+
+---
+
+## 20. FORCE MAJEURE
+
+**20.1 Excused Performance**  
+Neither party shall be liable for any delay or failure to perform due to circumstances beyond its reasonable control, including:
+- Acts of God (earthquakes, floods, storms, pandemics)
+- War, terrorism, civil unrest, or government action
+- Labor disputes or strikes
+- Internet or telecommunications failures
+- Cyber attacks or security breaches
+- Supplier failures or material shortages
+- Power outages or infrastructure failures
+
+**20.2 Notification**  
+The affected party must:
+- Promptly notify the other party of the force majeure event
+- Use reasonable efforts to mitigate the impact
+- Resume performance as soon as reasonably possible
+
+**20.3 Extended Force Majeure**  
+If force majeure continues for more than sixty (60) days, either party may terminate affected orders or services without liability.
+
+---
+
+## 21. GOVERNMENT END USERS
+
+**21.1 U.S. Government Rights**  
+Licensed Products are "commercial items" as defined in FAR 2.101. If acquired by or on behalf of any U.S. Government entity, the following applies:
+
+**21.1.1 Software**  
+Licensed Software is commercial computer software subject to limited rights under DFARS 227.7202 and FAR 12.212. Government use, reproduction, and disclosure are subject to the restrictions in this Agreement.
+
+**21.1.2 Documentation**  
+Documentation constitutes commercial computer software documentation subject to limited rights under DFARS 227.7202 and FAR 12.212.
+
+**21.2 Non-U.S. Government**  
+Similar restrictions apply for non-U.S. government entities, adapted to applicable procurement regulations.
+
+---
+
+## 22. MARKETING AND PUBLICITY
+
+**22.1 Customer References**  
+Unless you opt out, Devs may:
+- List your name and logo as a customer on devs.com
+- Reference your use of Licensed Products in marketing materials
+- Create case studies about your implementation (with approval)
+- Request testimonials or reviews
+
+**22.2 Opt-Out**  
+You may opt out of marketing references by contacting marketing@devs.com.
+
+**22.3 Joint Marketing**  
+Enterprise customers may participate in joint marketing activities, webinars, or events by mutual agreement.
+
+---
+
+## 23. ACCESSIBILITY
+
+**23.1 Commitment**  
+Devs strives to make Licensed Products accessible to users with disabilities in accordance with WCAG 2.1 Level AA standards and applicable accessibility laws.
+
+**23.2 Accommodation Requests**  
+If you require accessibility accommodations, contact accessibility@devs.com for assistance.
+
+**23.3 No Guarantee**  
+While Devs makes reasonable efforts toward accessibility, not all features may be fully accessible at all times.
+
+---
+
+## 24. DISPUTE RESOLUTION
+
+**24.1 Informal Resolution**  
+Before initiating formal proceedings, parties agree to attempt good faith negotiations to resolve disputes. Either party may initiate by written notice to the other, and parties will meet within thirty (30) days.
+
+**24.2 Binding Arbitration**  
+Any disputes not resolved informally shall be resolved through binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules.
+
+**24.3 Arbitration Procedures**
+- Location: [Your City, State/Country]
+- Arbitrator: Single arbitrator mutually agreed upon, or appointed by AAA
+- Language: English
+- Discovery: Limited to efficiency
+- Costs: Each party bears own costs unless arbitrator rules otherwise
+- Award: Final, binding, and enforceable in any court of competent jurisdiction
+
+**24.4 Class Action Waiver**  
+YOU AGREE THAT DISPUTES WILL BE RESOLVED INDIVIDUALLY, NOT AS A CLASS ACTION, CONSOLIDATED ACTION, OR REPRESENTATIVE ACTION. YOU WAIVE ANY RIGHT TO PARTICIPATE IN CLASS ACTIONS AGAINST DEVS.
+
+**24.5 Small Claims Exception**  
+Either party may bring an individual action in small claims court for matters within its jurisdiction.
+
+**24.6 Injunctive Relief**  
+Nothing prevents either party from seeking injunctive or other equitable relief in court for:
+- Intellectual property infringement
+- Breach of confidentiality
+- Misuse of Educational Software
+- Threats to data security or business operations
+
+**24.7 Opt-Out**  
+You may opt out of arbitration by written notice to legal@devs.com within thirty (30) days of first accepting this Agreement. Opt-out does not affect other provisions.
+
+---
+
+## 25. GENERAL PROVISIONS
+
+**25.1 Governing Law**  
+This Agreement shall be governed by and construed in accordance with the laws of [Your State/Country], without regard to conflict of law principles. The United Nations Convention on Contracts for the International Sale of Goods does not apply.
+
+**25.2 Jurisdiction and Venue**  
+Except for matters subject to arbitration, exclusive jurisdiction and venue for any legal proceedings shall be the state and federal courts located in [Your County, State], and parties consent to personal jurisdiction in such courts.
+
+**25.3 Severability**  
+If any provision of this Agreement is found invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid and enforceable. If modification is not possible, the provision shall be severed, and the remaining provisions shall remain in full force and effect.
+
+**25.4 Entire Agreement**  
+This Agreement, together with the Privacy Policy, any separate written agreements between you and Devs, and Documentation, constitutes the entire agreement between you and Devs regarding Licensed Products and supersedes all prior or contemporaneous agreements, understandings, communications, and proposals, whether oral or written.
+
+**25.5 Amendment**  
+Devs reserves the right to modify this Agreement at any time. Changes will be effective:
+- Immediately upon posting for material changes affecting security or legal compliance
+- Thirty (30) days after notice for all other changes
+
+Notice will be provided through:
+- Email to your registered address
+- In-product notifications
+- Posting on devs.com/legal
+
+Continued use of Licensed Products after changes constitutes acceptance. If you do not agree, you must stop using Licensed Products and may be entitled to a pro-rata refund of prepaid fees.
+
+**25.6 Waiver**  
+Failure by Devs to enforce any provision of this Agreement shall not constitute a waiver of that provision or any other provision. No waiver shall be effective unless in writing and signed by an authorized representative of Devs.
+
+**25.7 Assignment**  
+You may not assign, transfer, delegate, or sublicense this Agreement or any rights or obligations hereunder without Devs' prior written consent. Any attempted assignment in violation of this provision is void. Devs may assign this Agreement at any time without restriction, including in connection with a merger, acquisition, reorganization, or sale of assets.
+
+**25.8 Notices**  
+All notices under this Agreement must be in writing and sent to:
+
+**To Devs:**
+Devs Corporation  
+Legal Department  
+[Your Address]  
+[City, State ZIP]  
+Email: legal@devs.com
+
+**To You:**
+To the email address associated with your account or provided during purchase
+
+Notices are effective upon receipt or, if by email, within two (2) business days of sending.
+
+**25.9 Relationship of Parties**  
+This Agreement does not create any partnership, joint venture, employment, agency, or franchise relationship. Neither party has authority to bind the other or incur obligations on the other's behalf.
+
+**25.10 Third-Party Beneficiaries**  
+Except for Devs Parties who are express third-party beneficiaries of indemnification provisions, there are no third-party beneficiaries to this Agreement.
+
+**25.11 Interpretation**  
+Headings are for convenience only and do not affect interpretation. "Including" means "including without limitation." No presumption applies against the drafting party.
+
+**25.12 Language**  
+This Agreement is drafted in English. Any translations are for convenience only. In case of conflict, the English version controls.
+
+**25.13 Survival**  
+Provisions that by their nature should survive termination shall survive, including but not limited to: intellectual property rights, confidentiality, indemnification, limitation of liability, dispute resolution, and general provisions.
+
+**25.14 Statute of Limitations**  
+Any claim arising under this Agreement must be brought within one (1) year after the claim arises, or such claim is permanently barred.
+
+**25.15 Equitable Remedies**  
+You acknowledge that breach of this Agreement may cause irreparable harm to Devs for which monetary damages are inadequate. Devs is entitled to seek equitable relief, including injunctions and specific performance, without posting bond.
+
+**25.16 Attorney Fees**  
+In any proceeding to enforce this Agreement, the prevailing party is entitled to recover reasonable attorneys' fees, expert fees, and costs.
+
+**25.17 Electronic Signatures**  
+This Agreement may be executed electronically and in counterparts. Electronic signatures shall have the same effect as original signatures.
+
+**25.18 Feedback Usage**  
+By using Licensed Products, you grant Devs permission to contact you regarding your experience and to request participation in surveys or feedback sessions.
+
+---
+
+## 26. SPECIAL PROVISIONS FOR SPECIFIC PRODUCTS
+
+**26.1 Development Tools and SDKs**  
+If Licensed Products include software development kits (SDKs), APIs, or development tools:
+- You may use them to develop applications ("Your Applications")
+- You may distribute runtime components with Your Applications subject to license tier restrictions
+- You must include proper attribution and copyright notices
+- You may not expose API functionality in ways that allow third parties to bypass license requirements
+- You remain responsible for Your Applications' compliance with all laws
+
+**26.2 Hardware Components**
+
+**26.2.1 Processors and CPUs**
+- Warranty covers defects, not performance variations within specifications
+- Overclocking voids warranty unless explicitly supported
+- Bent pins and physical damage are not covered
+
+**26.2.2 Graphics Cards**
+- Mining operations beyond consumer specifications void warranty
+- Custom cooling solutions must be approved
+- Driver support provided for current and two previous generations
+
+**26.2.3 Memory Modules**
+- Lifetime warranty available on premium lines
+- XMP/DOCP profiles provided without stability guarantee on all systems
+- Mixing brands or speeds not recommended
+
+**26.2.4 Storage Devices**
+- Warranty based on TBW (Terabytes Written) ratings for SSDs
+- Data recovery services available separately
+- Encryption keys are user's responsibility; Devs cannot recover encrypted data
+
+**26.2.5 Power Supplies**
+- Warranty covers unit replacement only, not damage to other components
+- Must be used within rated specifications
+- Do not open; contains high voltage
+
+**26.2.6 Cooling Systems**
+- Regular maintenance required; thermal paste replacement recommended annually
+- Liquid cooling systems require leak checks
+- Fan noise within specifications not covered by warranty
+
+**26.3 Enterprise Management Software**
+- Requires dedicated server or cloud infrastructure
+- Supports LDAP/Active Directory integration
+- Audit logging must be retained per your compliance requirements
+- Role-based access control must be properly configured
+
+**26.4 Security Software**
+- Regular definition updates required
+- False positives may occur; whitelist mechanisms provided
+- Zero-day protection not guaranteed
+- Must be used alongside, not as replacement for, standard security practices
+
+**26.5 Productivity Software**
+- Cloud synchronization subject to third-party service availability
+- File format compatibility across versions not guaranteed
+- Collaboration features require internet connectivity
+- Data backup is your responsibility
+
+---
+
+## 27. INDUSTRY-SPECIFIC COMPLIANCE
+
+**27.1 Healthcare (HIPAA)**  
+If you use Licensed Products to process protected health information (PHI):
+- You must execute a Business Associate Agreement (BAA)
+- Additional security configurations may be required
+- Not all Licensed Products are HIPAA-compliant; verify before use
+
+**27.2 Financial Services**  
+If you are subject to financial regulations:
+- You must ensure Licensed Products meet your compliance obligations
+- Audit logging and reporting features must be enabled
+- Data retention policies must be configured appropriately
+
+**27.3 Education (FERPA, COPPA)**  
+Educational institutions must:
+- Configure privacy settings appropriately for student data
+- Obtain necessary parental consents
+- Limit data collection to educational purposes
+- Not use student data for marketing without consent
+
+**27.4 European Union (GDPR)**  
+For EU users:
+- Data Processing Addendum available upon request
+- Data residency options available for Enterprise customers
+- Data Subject Access Request (DSAR) procedures documented
+- Right to erasure and data portability supported
+
+---
+
+## 28. SOCIAL RESPONSIBILITY AND ETHICS
+
+**28.1 Ethical Use Commitment**  
+Devs is committed to ethical business practices and expects the same from customers. You agree not to use Licensed Products:
+- To violate human rights
+- To develop autonomous weapons systems
+- To conduct mass surveillance without appropriate authorization
+- To discriminate based on protected characteristics
+- To manipulate or deceive users through dark patterns
+
+**28.2 Environmental Responsibility**  
+Devs hardware is designed with environmental considerations:
+- RoHS and REACH compliant
+- Energy efficient designs
+- Recycling programs available at devs.com/recycle
+- Reduced packaging materials
+
+**28.3 Conflict Minerals**  
+Devs is committed to sourcing conflict-free minerals. Our supply chain complies with Section 1502 of the Dodd-Frank Act.
+
+---
+
+## 29. CUSTOMER OBLIGATIONS
+
+**29.1 Account Security**  
+You are responsible for:
+- Maintaining confidentiality of login credentials
+- All activities under your account
+- Notifying Devs immediately of unauthorized access
+- Using strong passwords and enabling two-factor authentication
+
+**29.2 Prohibited Activities**  
+You may not use Licensed Products to:
+- Transmit malware, viruses, or malicious code
+- Conduct port scanning or vulnerability testing without authorization
+- Send spam or unsolicited communications
+- Infringe intellectual property rights
+- Harvest user data without consent
+- Impersonate others or misrepresent affiliation
+
+**29.3 System Requirements**  
+You must ensure:
+- Your systems meet minimum requirements specified in Documentation
+- Operating systems and dependencies are kept updated
+- Adequate backups are maintained
+- Network infrastructure meets performance needs
+
+---
+
+## 30. ACKNOWLEDGMENT AND ACCEPTANCE
+
+**30.1 Legal Capacity**  
+By accepting this Agreement, you represent and warrant that:
+- You are at least 18 years old or the age of majority in your jurisdiction
+- You have legal capacity to enter into binding agreements
+- If representing an organization, you have authority to bind that organization
+- You have read, understood, and agree to be bound by this Agreement
+
+**30.2 Methods of Acceptance**  
+You accept this Agreement by:
+- Clicking "I Agree" or similar button during installation or setup
+- Installing, copying, downloading, or using Licensed Products
+- Making payment for Licensed Products
+- Creating an account on devs.com
+- Breaking security seals on hardware packaging
+
+**30.3 Parental Consent**  
+If you are under 18, your parent or legal guardian must review and accept this Agreement on your behalf.
+
+**30.4 Rejection**  
+IF YOU DO NOT AGREE TO THESE TERMS:
+- Do not install, copy, download, or use Licensed Products
+- Return unopened hardware within 30 days for a full refund
+- Contact support@devs.com for assistance with returns
+- Cease all use of Licensed Products immediately
+
+---
+
+## 31. CONTACT INFORMATION
+
+For assistance, questions, or concerns regarding this Agreement or Licensed Products:
+
+**General Support:**  
+Email: support@devs.com  
+Phone: 1-800-DEVS-HELP (1-800-338-7435)  
+Hours: 24/7 for Premium Support; Mon-Fri 9AM-6PM EST for Standard Support
+
+**Sales and Licensing:**  
+Email: sales@devs.com  
+Phone: 1-800-DEVS-SALE
+
+**Technical Support:**  
+Email: tech@devs.com  
+Support Portal: support.devs.com
+
+**Legal Department:**  
+Email: legal@devs.com  
+Address: Devs Corporation, Legal Department, [Your Address]
+
+**Privacy Inquiries:**  
+Email: privacy@devs.com  
+Privacy Portal: devs.com/privacy
+
+**Security Issues:**  
+Email: security@devs.com  
+PGP Key: Available at devs.com/security
+
+**Compliance and Ethics:**  
+Email: compliance@devs.com  
+Whistleblower Hotline: 1-800-DEVS-TIP (Anonymous reporting available)
+
+**Media and Press:**  
+Email: press@devs.com
+
+**Partnership Opportunities:**  
+Email: partners@devs.com
+
+---
+
+## 32. EFFECTIVE DATE AND VERSION HISTORY
+
+**Current Version:** 1.0  
+**Effective Date:** January 12, 2026  
+**Last Updated:** January 12, 2026
+
+**Version History:**
+- Version 2.0 (January 12, 2026): Expanded provisions, added Educational Software section, enhanced compliance requirements
+- Version 1.0 (Initial Release): Base agreement
+
+Previous versions available at devs.com/legal/archive
+
+---
+
+## FINAL ACKNOWLEDGMENT
+
+**BY INSTALLING, COPYING, OR OTHERWISE USING LICENSED PRODUCTS, YOU ACKNOWLEDGE THAT:**
+
+1. You have read this entire Agreement carefully
+2. You understand your rights and obligations
+3. You agree to be bound by all terms and conditions
+4. You accept responsibility for compliance with all applicable laws
+5. You understand that Educational Software may only be used for legitimate educational purposes and that misuse will result in immediate license termination and potential legal action
+6. You acknowledge that violations may result in civil and criminal penalties
+7. This Agreement constitutes a legally binding contract between you and Devs Corporation
+
+**IF YOU DO NOT AGREE, DO NOT USE LICENSED PRODUCTS.**
+
+---
+
+**© 2026 Devs Corporation. All Rights Reserved.**
+
+**Devs**, the Devs logo, and all related product names are trademarks or registered trademarks of Devs Corporation. All other trademarks are the property of their respective owners.
+
+This document is confidential and proprietary. Unauthorized reproduction, distribution, or disclosure is prohibited.
+
+**Document ID:** DEVS-EULA-2.0-20260112  
+**Legal Review:** Approved  
+**Classification:** Public

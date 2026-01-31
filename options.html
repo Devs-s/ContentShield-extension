@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Shield - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  
+  <!-- Password Protection Overlay -->
+  <div class="password-overlay" id="passwordOverlay" style="display: none;">
+    <div class="password-modal">
+      <div class="password-icon">🔒</div>
+      <h2>Enter Password</h2>
+      <p>This extension is password protected</p>
+      <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
+      <div class="password-error" id="passwordError"></div>
+      <button class="btn btn-primary" id="passwordOverlayBtn">Unlock</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="icons/icon48.png" alt="Content Shield" class="logo">
+          <h1 class="title">Content Shield Settings</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tabs-nav">
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="general">⚙️ General</button>
+        <button class="tab-btn" data-tab="security">🔒 Security</button>
+        <button class="tab-btn" data-tab="filters">🛡️ Filters</button>
+        <button class="tab-btn" data-tab="statistics">📊 Statistics</button>
+        <button class="tab-btn" data-tab="history">📜 History</button>
+        <button class="tab-btn" data-tab="data">💾 Data</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- General Settings Tab -->
+      <div class="tab-content active" id="generalTab">
+        <div class="settings-section">
+          <h2 class="section-title">General Settings</h2>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Enable Protection</label>
+              <p class="setting-description">Turn content filtering on or off</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="enabledToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Blocking Level</label>
+              <p class="setting-description">Choose how strict the filtering should be</p>
+            </div>
+            <select id="blockingLevel" class="select-input">
+              <option value="strict">Strict - Block all suspicious content</option>
+              <option value="moderate">Moderate - Balanced filtering</option>
+              <option value="mild">Mild - Only obvious content</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Show Blocked Page</label>
+              <p class="setting-description">Display a blocked page instead of error</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="showBlockedPage">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Log Blocked Attempts</label>
+              <p class="setting-description">Keep a history of blocked sites</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="logBlocked">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary" id="saveGeneralBtn">Save Changes</button>
+        </div>
+      </div>
+
+      <!-- Security Settings Tab -->
+      <div class="tab-content" id="securityTab">
+        <div class="settings-section">
+          <h2 class="section-title">Security Settings</h2>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Password Protection</label>
+              <p class="setting-description">Require password to access settings</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="passwordProtection">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div id="passwordFields" style="display: none;">
+            <div class="form-group">
+              <label class="form-label">New Password</label>
+              <input type="password" id="newPassword" class="form-input" placeholder="Enter new password (min 6 characters)">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Confirm Password</label>
+              <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm password">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="savePasswordBtn">Save Security Settings</button>
+        </div>
+      </div>
+
+      <!-- Filters Tab -->
+      <div class="tab-content" id="filtersTab">
+        
+        <!-- Custom Domains Section -->
+        <div class="settings-section">
+          <h2 class="section-title">Custom Blocked Domains</h2>
+          <p class="section-description">Add specific domains to block in addition to the default list</p>
+          
+          <div class="input-group">
+            <input type="text" id="customDomainInput" class="form-input" placeholder="example.com">
+            <button class="btn btn-primary" id="addDomainBtn">Add Domain</button>
+          </div>
+
+          <div class="list-container" id="customDomainsList">
+            <div class="no-data">No custom domains added</div>
+          </div>
+        </div>
+
+        <!-- Custom Keywords Section -->
+        <div class="settings-section">
+          <h2 class="section-title">Custom Blocked Keywords</h2>
+          <p class="section-description">Add keywords to block URLs containing these terms</p>
+          
+          <div class="input-group">
+            <input type="text" id="customKeywordInput" class="form-input" placeholder="keyword">
+            <button class="btn btn-primary" id="addKeywordBtn">Add Keyword</button>
+          </div>
+
+          <div class="list-container" id="customKeywordsList">
+            <div class="no-data">No custom keywords added</div>
+          </div>
+        </div>
+
+        <!-- Whitelist Section -->
+        <div class="settings-section">
+          <h2 class="section-title">Whitelisted Domains</h2>
+          <p class="section-description">Domains that will never be blocked</p>
+          
+          <div class="list-container" id="whitelistList">
+            <div class="no-data">No whitelisted domains</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Tab -->
+      <div class="tab-content" id="statisticsTab">
+        <div class="settings-section">
+          <h2 class="section-title">Protection Statistics</h2>
+          
+          <div class="stats-grid-large">
+            <div class="stat-card-large">
+              <div class="stat-icon">🛡️</div>
+              <div class="stat-value" id="totalBlockedStat">0</div>
+              <div class="stat-label">Total Blocked</div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">📅</div>
+              <div class="stat-value" id="todayBlockedStat">0</div>
+              <div class="stat-label">Blocked Today</div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">📊</div>
+              <div class="stat-value" id="weekBlockedStat">0</div>
+              <div class="stat-label">Blocked This Week</div>
+            </div>
+          </div>
+
+          <div class="chart-section">
+            <h3 class="subsection-title">Last 7 Days Activity</h3>
+            <div class="chart-container" id="chartContainer">
+              <canvas id="blockingChart"></canvas>
+            </div>
+          </div>
+
+          <div class="stats-info">
+            <p><strong>Last Reset:</strong> <span id="lastResetDate">Never</span></p>
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn-secondary" id="exportStatsBtn">📥 Export Statistics</button>
+            <button class="btn btn-danger" id="resetStatsBtn">🔄 Reset Statistics</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- History Tab -->
+      <div class="tab-content" id="historyTab">
+        <div class="settings-section">
+          <div class="section-header-flex">
+            <div>
+              <h2 class="section-title">Blocked History</h2>
+              <p class="section-description">Recent blocked attempts (last 100)</p>
+            </div>
+            <button class="btn btn-danger" id="clearHistoryBtn">Clear History</button>
+          </div>
+          
+          <div class="history-container" id="historyList">
+            <div class="loading">Loading history...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Management Tab -->
+      <div class="tab-content" id="dataTab">
+        <div class="settings-section">
+          <h2 class="section-title">Export & Import</h2>
+          <p class="section-description">Backup or restore your settings and data</p>
+          
+          <div class="data-actions">
+            <div class="data-action-card">
+              <div class="data-icon">📤</div>
+              <h3>Export Settings</h3>
+              <p>Download all your settings, filters, and statistics</p>
+              <button class="btn btn-primary" id="exportSettingsBtn">Export Data</button>
+            </div>
+
+            <div class="data-action-card">
+              <div class="data-icon">📥</div>
+              <h3>Import Settings</h3>
+              <p>Restore settings from a backup file</p>
+              <button class="btn btn-secondary" id="importSettingsBtn">Import Data</button>
+              <input type="file" id="importFileInput" accept=".json" style="display: none;">
+            </div>
+
+            <div class="data-action-card danger">
+              <div class="data-icon">⚠️</div>
+              <h3>Reset Everything</h3>
+              <p>Delete all data and restore defaults</p>
+              <button class="btn btn-danger" id="resetAllBtn">Reset All Settings</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="settings-section">
+          <h2 class="section-title">About</h2>
+          <div class="about-content">
+            <p><strong>Content Shield</strong> v1.0</p>
+            <p>A powerful content filtering extension to keep your browsing safe and focused.</p>
+            <p class="about-footer">Made with 💜 for safer browsing</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>Content Shield Extension v1.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div class="notification" id="notification"></div>
+
+  <!-- Scripts -->
+  <script src="utils.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
