@@ -24,7 +24,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["utils.js", "content.js"],
+      "js": ["browser-polyfill.js", "utils.js", "content.js"],
       "run_at": "document_start",
       "all_frames": true
     }
@@ -38,9 +38,6 @@
   "options_page": "options.html",
   
   "icons": {
-    "16": "imgs/icon16.png",
-    "32": "imgs/icon32.png",
-    "48": "imgs/icon48.png",
     "128": "imgs/icon128.png"
   },
   

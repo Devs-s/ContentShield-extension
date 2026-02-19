@@ -287,6 +287,13 @@ async function checkURL(url, tabId) {
 
     const urlObj = new URL(url);
     const hostname = urlObj.hostname.toLowerCase();
+    const pathname = urlObj.pathname.toLowerCase();
+    const urlLower = url.toLowerCase();
+
+    // Never block the Content Shield GitHub repository
+    if (hostname === 'github.com' && pathname.includes('/devs-s/contentshield-extension')) {
+      return;
+    }
 
     const whitelist = whitelistedDomains || [];
     const domains = customDomains || [];
@@ -297,22 +304,27 @@ async function checkURL(url, tabId) {
       return;
     }
 
-    // Check custom domains
+    // Always block URLs containing "porn"
+    if (urlLower.includes('porn')) {
+      blockURL(url, tabId, 'porn_in_url');
+      return;
+    }
+
+    // Check custom domains from filters folder only
     const isBlocked = domains.some(domain => {
       const domainLower = domain.toLowerCase();
       return hostname === domainLower || hostname.endsWith('.' + domainLower);
     });
 
     if (isBlocked) {
-      // If DNR is available, it will handle the redirect. Otherwise, block manually.
+      // If DNR is available, it will handle redirect. Otherwise, block manually.
       if (!chrome.declarativeNetRequest || !chrome.declarativeNetRequest.updateDynamicRules) {
         blockURL(url, tabId, 'blocked_domain');
       }
       return;
     }
 
-    // Check URL for keywords
-    const urlLower = url.toLowerCase();
+    // Check URL for keywords from filters folder only
     for (const keyword of keywords) {
       if (urlLower.includes(keyword.toLowerCase())) {
         blockURL(url, tabId, 'keyword');
@@ -329,7 +341,6 @@ async function checkURL(url, tabId) {
 function blockURL(url, tabId, reason) {
   const blockedURL = chromeAPI.runtime.getURL('blocked.html') + 
     '?url=' + encodeURIComponent(url) + 
-    '&reason=' + encodeURIComponent(reason);
   
   chromeAPI.tabs.update(tabId, { url: blockedURL });
 }
@@ -365,8 +376,63 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   } else if (message.action === 'fetchGitHubSources') {
     fetchGitHubSources().then(() => sendResponse({ status: 'fetched' }));
     return true;
+  } else if (message.action === 'updateFilters') {
+    handleFilterUpdate(message.data).then(() => {
+      sendResponse({ status: 'filters_updated' });
+    }).catch(error => {
+      console.error('Filter update error:', error);
+      sendResponse({ status: 'error', error: error.message });
+    });
+    return true;
   }
 });
+
+// Handle filter updates from blocked page
+function handleFilterUpdate(data) {
+  return new Promise((resolve, reject) => {
+    if (data.type === 'remove_false_positive') {
+      // Remove domain from filters
+      removeDomainFromFilters(data.domain).then(resolve).catch(reject);
+    } else {
+      reject('Unknown filter update type');
+    }
+  });
+}
+
+// Remove domain from filters
+async function removeDomainFromFilters(domainToRemove) {
+  try {
+    // Load current filters from extension storage
+    const result = await chromeAPI.storage.local.get(['customDomains', 'filterData']);
+    let customDomains = result.customDomains || [];
+    let filterData = result.filterData || {};
+    
+    // Remove domain from custom domains list
+    customDomains = customDomains.filter(domain => domain !== domainToRemove);
+    
+    // Also update filter data structure if it exists
+    if (filterData.categories && filterData.categories.adult) {
+      filterData.categories.adult = filterData.categories.adult.filter(domain => domain !== domainToRemove);
+      filterData.totalDomains = filterData.categories.adult.length;
+      filterData.lastUpdated = new Date().toISOString().split('T')[0];
+    }
+    
+    // Save updated data back to storage
+    await chromeAPI.storage.local.set({
+      customDomains: customDomains,
+      filterData: filterData
+    });
+    
+    // Update blocking rules to apply changes immediately
+    await updateBlockingRules();
+    
+    console.log('Successfully removed domain from filters:', domainToRemove);
+    return true;
+  } catch (error) {
+    console.error('Error removing domain from filters:', error);
+    throw error;
+  }
+}
 
 // Log blocked content
 async function logBlock(data) {

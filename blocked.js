@@ -99,7 +99,7 @@
 
     // Override/whitelist button
     if (elements.overrideBtn) {
-      elements.overrideBtn.addEventListener('click', showPasswordPrompt);
+      elements.overrideBtn.addEventListener('click', showOverridePrompt);
     }
 
     // Submit password button
@@ -156,14 +156,29 @@
       reportedSites.push(report);
 
       chrome.storage.local.set({ reportedSites }, () => {
-        showSuccessMessage('Thank you for your report. This site has been flagged for review.');
+        showSuccessMessage('False positive reported. Thank you for helping improve our filters!');
         
-        // Disable report button
+        // Disable report button temporarily
         if (elements.reportBtn) {
           elements.reportBtn.disabled = true;
           elements.reportBtn.textContent = 'Reported';
         }
+        
+        // Update filter files to remove this false positive
+        updateFiltersToRemoveFalsePositive(blockedDomain);
       });
+    });
+  }
+
+  // Update filters to remove false positive
+  function updateFiltersToRemoveFalsePositive(domainToRemove) {
+    // Send message to background to update filters
+    chrome.runtime.sendMessage({
+      action: 'updateFilters',
+      data: {
+        type: 'remove_false_positive',
+        domain: domainToRemove
+      }
     });
   }
 
@@ -178,6 +193,25 @@
         elements.passwordInput.focus();
       }
     }
+  }
+
+  // Show override prompt
+  function showOverridePrompt() {
+    chrome.storage.local.get(['overridePassword', 'passwordEnabled'], (result) => {
+      const overridePassword = result.overridePassword || '';
+      const passwordEnabled = result.passwordEnabled || false;
+      
+      if (passwordEnabled) {
+        showPasswordPrompt();
+      } else {
+        // Directly allow access
+        addToWhitelist();
+        showSuccessMessage('Access granted. Redirecting...');
+        setTimeout(() => {
+          window.location.href = blockedURL;
+        }, 1000);
+      }
+    });
   }
 
   // Hide password prompt

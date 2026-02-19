@@ -37,7 +37,9 @@
   
   "options_page": "options.html",
   
-  "icons": {},
+  "icons": {
+    "128": "imgs/icon128.png"
+  },
   
   "declarative_net_request": {
     "rule_resources": [

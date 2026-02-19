@@ -85,15 +85,63 @@
   // Check if URL should be blocked based on patterns
   async function shouldBlockURL() {
     const url = window.location.href.toLowerCase();
-    const hostname = window.location.hostname.toLowerCase();
+    const urlObj = new URL(url);
+    const hostname = urlObj.hostname.toLowerCase();
+    const pathname = urlObj.pathname.toLowerCase();
+    const search = urlObj.search.toLowerCase();
 
-    // Check custom blocked domains
-    for (const domain of config.customDomains) {
+    // Never block the Content Shield GitHub repository
+    if (hostname === 'github.com' && pathname.includes('/devs-s/contentshield-extension')) {
+      return false;
+    }
+
+    // Always block URLs containing "porn" in main domain or path
+    if (hostname.includes('porn') || pathname.includes('porn')) {
+      logBlock('url_porn', 'porn in URL');
+      return true;
+    }
+
+    // Only block obvious adult domains from filters - be very restrictive
+    const obviousAdultDomains = config.customDomains.filter(domain => {
+      const domainLower = domain.toLowerCase();
+      
+      // Exclude legitimate tech/development sites
+      const isLegitimateTech = domainLower.includes('github') || 
+                             domainLower.includes('git') ||
+                             domainLower.includes('stack') ||
+                             domainLower.includes('code') ||
+                             domainLower.includes('dev') ||
+                             domainLower.includes('api');
+      
+      // Only block clear adult domains
+      const isObviousAdult = domainLower.includes('porn') || 
+                             domainLower.includes('xxx') || 
+                             domainLower.includes('sex') ||
+                             domainLower.includes('adult') ||
+                             domainLower.includes('nude') ||
+                             domainLower.includes('erotic') ||
+                             domainLower.includes('cam') ||
+                             domainLower.includes('escort') ||
+                             domainLower.includes('hookup');
+      
+      return isObviousAdult && !isLegitimateTech;
+    });
+
+    for (const domain of obviousAdultDomains) {
       const domainLower = domain.toLowerCase();
       if (hostname === domainLower || hostname.endsWith('.' + domainLower)) {
         logBlock('domain', domain);
         return true;
       }
+    }
+
+    // Check for adult terms in main path (not query parameters)
+    const adultTerms = ['porn', 'xxx', 'sex', 'adult', 'nude', 'erotic', 'cam', 'escort', 'hookup'];
+    const hasAdultInPath = adultTerms.some(term => pathname.includes(term));
+    
+    if (hasAdultInPath) {
+      logBlock('path_adult', 'adult term in path');
+      return true;
     }
 
     return false;
@@ -112,8 +160,41 @@
       // Combine URL + title + meta only
       const contentToCheck = `${title} ${metaDescription} ${urlText}`;
 
-      // Check custom keywords
-      for (const keyword of config.customKeywords) {
+      // Always block if content contains "porn"
+      if (contentToCheck.includes('porn')) {
+        logBlock('content_porn', 'porn in content');
+        blockPage();
+        return;
+      }
+
+      // Only check obvious adult keywords from filters - be very restrictive
+      const obviousAdultKeywords = config.customKeywords.filter(keyword => {
+        const keywordLower = keyword.toLowerCase();
+        
+        // Exclude legitimate tech/development terms
+        const isLegitimateTech = keywordLower.includes('git') || 
+                               keywordLower.includes('code') ||
+                               keywordLower.includes('dev') ||
+                               keywordLower.includes('api') ||
+                               keywordLower.includes('stack') ||
+                               keywordLower.includes('script') ||
+                               keywordLower.includes('framework');
+        
+        // Only block clear adult terms
+        const isObviousAdult = keywordLower.includes('porn') || 
+                               keywordLower.includes('xxx') || 
+                               keywordLower.includes('sex') ||
+                               keywordLower.includes('nude') ||
+                               keywordLower.includes('erotic') ||
+                               keywordLower.includes('adult') ||
+                               keywordLower.includes('cam') ||
+                               keywordLower.includes('escort') ||
+                               keywordLower.includes('hookup');
+        
+        return isObviousAdult && !isLegitimateTech;
+      });
+      
+      for (const keyword of obviousAdultKeywords) {
         const keywordLower = keyword.toLowerCase();
         if (contentToCheck.includes(keywordLower)) {
           logBlock('keyword', keyword);
@@ -154,6 +235,13 @@
       // Check for suspicious attributes
       const checkText = `${alt} ${src} ${title}`;
       
+      // Always block if image attributes contain "porn"
+      if (checkText.includes('porn')) {
+        blurElement(img);
+        return;
+      }
+      
+      // Check all custom keywords from filters
       for (const keyword of config.customKeywords) {
         if (checkText.includes(keyword.toLowerCase())) {
           blurElement(img);
@@ -173,6 +261,13 @@
 
       const checkText = `${src} ${title}`;
       
+      // Always block if video attributes contain "porn"
+      if (checkText.includes('porn')) {
+        blurElement(video);
+        return;
+      }
+      
+      // Check all custom keywords from filters
       for (const keyword of config.customKeywords) {
         if (checkText.includes(keyword.toLowerCase())) {
           blurElement(video);
