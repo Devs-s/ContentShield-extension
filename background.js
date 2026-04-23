@@ -1,36 +1,90 @@
-// Background service worker for Content Shield extension
+// Background service worker for Content Shield extension - Enhanced Version
+// Advanced porn/adult content blocker with AI-style detection
 
 'use strict';
 
 // Import browser polyfill for cross-browser compatibility
-// Note: This should be loaded first in manifest.json
 const chromeAPI = typeof browser !== 'undefined' ? browser : chrome;
 
+// Constants
 const DYNAMIC_RULE_START = 1000;
+const MAX_DYNAMIC_RULES = 5000;
 const GITHUB_SEARCH_BASE = 'https://api.github.com/search/code';
-const GITHUB_CATEGORIES = ['porn', 'adult', 'malware'];
+const GITHUB_CATEGORIES = ['porn', 'adult', 'malware', 'gambling', 'phishing'];
+const TRUSTED_DOMAINS = ['github.com', 'google.com', 'microsoft.com', 'apple.com', 'mozilla.org'];
 
-// Default settings
+// AI-Style Pattern Detection
+const AI_PATTERNS = {
+  adultDomains: [
+    /porn/i, /xxx/i, /sex/i, /adult/i, /nude/i, /naked/i, /erotic/i,
+    /cam/i, /escort/i, /hookup/i, /dating.*sex/i, /sexcam/i,
+    /live.*sex/i, /webcam.*sex/i, /stripper/i, /stripchat/i,
+    /onlyfans/i, /fansly/i, /manyvids/i, /clips4sale/i,
+    /pornhub/i, /xvideos/i, /xhamster/i, /redtube/i, /youporn/i,
+    /tube8/i, /spankbang/i, /chaturbate/i, /myfreecams/i,
+    /bongacams/i, /livejasmin/i, /streamate/i, /camsoda/i,
+    /brazzers/i, /bangbros/i, /realitykings/i, /naughtyamerica/i,
+    /digitalplayground/i, /evilangel/i, /julesjordan/i,
+    /hentai/i, /rule34/i, /gelbooru/i, /danbooru/i, /e621/i,
+    /fakku/i, /irodoricomics/i, /hentai.*manga/i, /doujin/i,
+    /gay.*porn/i, /lesbian.*porn/i, /shemale/i, /trans.*porn/i,
+    /bbw/i, /milf/i, /teen.*porn/i, /amateur.*porn/i, /homemade.*porn/i
+  ],
+  suspiciousPaths: [
+    /\/porn/i, /\/xxx/i, /\/sex/i, /\/adult/i, /\/nude/i,
+    /\/naked/i, /\/erotic/i, /\/cam/i, /\/escort/i, /\/hookup/i,
+    /\/videos\/porn/i, /\/videos\/xxx/i, /\/videos\/sex/i,
+    /\/gallery\/nude/i, /\/gallery\/sex/i, /\/pics\/adult/i,
+    /\/content\/porn/i, /\/media\/xxx/i, /\/stream\/sex/i,
+    /\/live\/cam/i, /\/private\/show/i, /\/vip\/content/i,
+    /\/members\/area/i, /\/premium\/access/i, /\/exclusive\/content/i
+  ],
+  queryParams: [
+    /[?&]porn=/i, /[?&]sex=/i, /[?&]xxx=/i, /[?&]adult=/i,
+    /[?&]nude=/i, /[?&]naked=/i, /[?&]erotic=/i, /[?&]cam=/i,
+    /[?&]video=porn/i, /[?&]category=sex/i, /[?&]tag=xxx/i,
+    /[?&]search=adult/i, /[?&]query=nude/i, /[?&]filter=erotic/i
+  ]
+};
+
+// Default settings - Enhanced
 const DEFAULT_SETTINGS = {
   enabled: true,
-  strictMode: false,
-  blockingLevel: 'strict',
+  strictMode: true,
+  blockingLevel: 'strict', // strict, moderate, mild
   blockImages: true,
   blockVideos: true,
+  blockIframes: true,
+  enableAiDetection: true,
+  enableHeuristicScan: true,
+  enableDnsBlocking: true,
   customDomains: [],
   customKeywords: [],
   whitelistedDomains: [],
+  temporarilyWhitelisted: [], // 30-minute temporary whitelist
   passwordProtected: false,
   password: '',
   homePage: 'https://www.google.com',
+  safeSearchEnabled: true,
+  youtubeRestrictedMode: true,
   blockStats: {
     totalBlocked: 0,
     blockedToday: 0,
     blockedThisWeek: 0,
-    lastReset: Date.now()
+    blockedThisMonth: 0,
+    lastReset: Date.now(),
+    lastMonthReset: Date.now()
   },
   blockHistory: [],
-  reportedSites: []
+  reportedSites: [],
+  aiFindings: [],
+  suspiciousPatterns: [],
+  userPreferences: {
+    showNotifications: true,
+    notifyOnBlock: false,
+    autoCloseTab: false,
+    redirectDelay: 0
+  }
 };
 
 // Legacy default list kept empty to rely solely on filters/domains.json
@@ -98,23 +152,115 @@ async function ensureFiltersSeeded() {
   };
 }
 
-// Classify a URL/domain into a coarse category for logging
-function classifyCategory(urlOrDomain) {
+// Enhanced category classification with AI-style scoring
+function classifyCategory(urlOrDomain, context = {}) {
   const value = (urlOrDomain || '').toLowerCase();
-  if (!value) return 'unknown';
-  if (value.includes('porn') || value.includes('sex') || value.includes('xxx') || value.includes('adult')) return 'adult';
-  if (value.includes('malware') || value.includes('virus') || value.includes('phishing')) return 'malware';
-  if (value.includes('gamble') || value.includes('casino') || value.includes('bet')) return 'gambling';
-  return 'unknown';
+  if (!value) return { category: 'unknown', confidence: 0, flags: [] };
+
+  const flags = [];
+  let adultScore = 0;
+  let malwareScore = 0;
+  let gamblingScore = 0;
+
+  // Check against AI patterns
+  for (const pattern of AI_PATTERNS.adultDomains) {
+    if (pattern.test(value)) {
+      adultScore += 25;
+      flags.push(`pattern:${pattern.source}`);
+    }
+  }
+
+  for (const pattern of AI_PATTERNS.suspiciousPaths) {
+    if (pattern.test(value)) {
+      adultScore += 15;
+      flags.push(`path_pattern`);
+    }
+  }
+
+  for (const pattern of AI_PATTERNS.queryParams) {
+    if (pattern.test(value)) {
+      adultScore += 10;
+      flags.push(`query_pattern`);
+    }
+  }
+
+  // Check for malware indicators
+  if (value.includes('malware') || value.includes('virus') || value.includes('phishing') || 
+      value.includes('trojan') || value.includes('ransomware')) {
+    malwareScore += 50;
+    flags.push('malware_keyword');
+  }
+
+  // Check for gambling indicators
+  if (value.includes('gamble') || value.includes('casino') || value.includes('bet') || 
+      value.includes('poker') || value.includes('slots') || value.includes('lottery')) {
+    gamblingScore += 50;
+    flags.push('gambling_keyword');
+  }
+
+  // Determine primary category
+  let category = 'unknown';
+  let confidence = 0;
+
+  if (adultScore >= malwareScore && adultScore >= gamblingScore && adultScore > 0) {
+    category = 'adult';
+    confidence = Math.min(adultScore, 100);
+  } else if (malwareScore >= adultScore && malwareScore >= gamblingScore && malwareScore > 0) {
+    category = 'malware';
+    confidence = Math.min(malwareScore, 100);
+  } else if (gamblingScore > 0) {
+    category = 'gambling';
+    confidence = Math.min(gamblingScore, 100);
+  }
+
+  return { category, confidence, flags, scores: { adult: adultScore, malware: malwareScore, gambling: gamblingScore } };
 }
 
-// Persist AI/logged findings (keeps last 500)
+// Persist AI/logged findings with enhanced analytics
 async function saveFinding(entry) {
-  const existing = await chromeAPI.storage.local.get(['aiFindings']);
+  const existing = await chromeAPI.storage.local.get(['aiFindings', 'suspiciousPatterns']);
   const list = Array.isArray(existing.aiFindings) ? existing.aiFindings : [];
-  list.unshift({ ...entry, timestamp: Date.now() });
+  const patterns = Array.isArray(existing.suspiciousPatterns) ? existing.suspiciousPatterns : [];
+
+  // Add finding
+  const enrichedEntry = {
+    ...entry,
+    timestamp: Date.now(),
+    id: generateId(),
+    userAgent: navigator.userAgent,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+  };
+
+  list.unshift(enrichedEntry);
   if (list.length > 500) list.splice(500);
-  await chromeAPI.storage.local.set({ aiFindings: list });
+
+  // Track suspicious patterns
+  if (entry.flags && entry.flags.length > 0) {
+    for (const flag of entry.flags) {
+      const existingPattern = patterns.find(p => p.name === flag);
+      if (existingPattern) {
+        existingPattern.count++;
+        existingPattern.lastSeen = Date.now();
+      } else {
+        patterns.push({
+          name: flag,
+          count: 1,
+          firstSeen: Date.now(),
+          lastSeen: Date.now()
+        });
+      }
+    }
+  }
+
+  await chromeAPI.storage.local.set({ 
+    aiFindings: list,
+    suspiciousPatterns: patterns
+  });
+}
+
+// Generate unique ID for entries
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
 // Fetch GitHub links for lists using the public API (rate-limited)
@@ -159,9 +305,9 @@ chromeAPI.runtime.onStartup.addListener(async () => {
 // Initialize default settings
 async function initializeSettings() {
   try {
-    const { domains, keywords } = await loadDefaultFilters();
-    const mergedDomains = uniqueList(domains);
-    const mergedKeywords = uniqueList(keywords);
+    const { domains: defaultDomains, keywords: defaultKeywords } = await loadDefaultFilters();
+    const mergedDomains = uniqueList(defaultDomains);
+    const mergedKeywords = uniqueList(defaultKeywords);
 
     const settings = { 
       ...DEFAULT_SETTINGS,
@@ -180,17 +326,17 @@ async function initializeSettings() {
 async function updateSettings() {
   try {
     const currentSettings = await chromeAPI.storage.local.get(null);
-    const { domains, keywords } = await loadDefaultFilters();
+    const { domains: defaultDomains, keywords: defaultKeywords } = await loadDefaultFilters();
     const mergedSettings = { ...DEFAULT_SETTINGS, ...currentSettings };
 
     mergedSettings.customDomains = uniqueList([
       ...(currentSettings.customDomains || []),
-      ...domains
+      ...defaultDomains
     ]);
 
     mergedSettings.customKeywords = uniqueList([
       ...(currentSettings.customKeywords || []),
-      ...keywords
+      ...defaultKeywords
     ]);
 
     await chromeAPI.storage.local.set(mergedSettings);
@@ -273,15 +419,21 @@ chromeAPI.webNavigation.onBeforeNavigate.addListener((details) => {
   }
 });
 
-// Check if URL should be blocked
+// Enhanced URL checking with AI-style detection
 async function checkURL(url, tabId) {
   try {
     const merged = await ensureFiltersSeeded();
+    const settings = await chromeAPI.storage.local.get(['enabled', 'enableAiDetection', 'enableHeuristicScan', 'temporarilyWhitelisted']);
     const { enabled, customDomains, whitelistedDomains, customKeywords } = merged;
 
     if (!enabled) return;
 
-    if (url.startsWith(chromeAPI.runtime.getURL('blocked.html'))) {
+    // Skip internal extension pages
+    if (url.startsWith(chromeAPI.runtime.getURL('')) || 
+        url.startsWith('chrome://') || 
+        url.startsWith('chrome-extension://') ||
+        url.startsWith('about:') ||
+        url.startsWith('moz-extension://')) {
       return;
     }
 
@@ -289,6 +441,12 @@ async function checkURL(url, tabId) {
     const hostname = urlObj.hostname.toLowerCase();
     const pathname = urlObj.pathname.toLowerCase();
     const urlLower = url.toLowerCase();
+    const searchParams = urlObj.search.toLowerCase();
+
+    // Never block trusted domains
+    if (TRUSTED_DOMAINS.some(td => hostname === td || hostname.endsWith('.' + td))) {
+      return;
+    }
 
     // Never block the Content Shield GitHub repository
     if (hostname === 'github.com' && pathname.includes('/devs-s/contentshield-extension')) {
@@ -298,42 +456,179 @@ async function checkURL(url, tabId) {
     const whitelist = whitelistedDomains || [];
     const domains = customDomains || [];
     const keywords = customKeywords || [];
+    const tempWhitelist = settings.temporarilyWhitelisted || [];
 
-    // Check if whitelisted
+    // Check if temporarily whitelisted (30-minute window)
+    const now = Date.now();
+    const validTempWhitelist = tempWhitelist.filter(entry => now - entry.timestamp < 30 * 60 * 1000);
+    if (validTempWhitelist.some(entry => hostname.includes(entry.domain))) {
+      return;
+    }
+
+    // Check if permanently whitelisted
     if (whitelist.some(domain => hostname === domain || hostname.endsWith('.' + domain))) {
       return;
     }
 
-    // Always block URLs containing "porn"
-    if (urlLower.includes('porn')) {
-      blockURL(url, tabId, 'porn_in_url');
-      return;
+    // AI-Style Pattern Detection
+    if (settings.enableAiDetection !== false) {
+      const classification = classifyCategory(url);
+      
+      if (classification.category === 'adult' && classification.confidence >= 30) {
+        await saveFinding({
+          source: 'ai_detection',
+          category: 'adult',
+          url: url,
+          confidence: classification.confidence,
+          flags: classification.flags,
+          scores: classification.scores
+        });
+        
+        if (classification.confidence >= 50) {
+          blockURL(url, tabId, `ai_detected_adult_${classification.confidence}%`);
+          return;
+        }
+      }
     }
 
-    // Check custom domains from filters folder only
+    // Heuristic scan for suspicious patterns
+    if (settings.enableHeuristicScan !== false) {
+      const heuristicScore = performHeuristicScan(hostname, pathname, searchParams);
+      if (heuristicScore.score >= 70) {
+        await saveFinding({
+          source: 'heuristic_scan',
+          category: 'adult',
+          url: url,
+          confidence: heuristicScore.score,
+          flags: heuristicScore.flags
+        });
+        blockURL(url, tabId, `heuristic_adult_${heuristicScore.score}%`);
+        return;
+      }
+    }
+
+    // Always block URLs containing explicit adult terms
+    const explicitTerms = ['porn', 'porno', 'pornography', 'xxx', 'sex', 'adult content', 
+                          'nude pics', 'naked girls', 'erotic videos', 'cam sex'];
+    for (const term of explicitTerms) {
+      if (urlLower.includes(term)) {
+        blockURL(url, tabId, `explicit_term_${term}`);
+        return;
+      }
+    }
+
+    // Check custom domains
     const isBlocked = domains.some(domain => {
       const domainLower = domain.toLowerCase();
       return hostname === domainLower || hostname.endsWith('.' + domainLower);
     });
 
     if (isBlocked) {
-      // If DNR is available, it will handle redirect. Otherwise, block manually.
-      if (!chrome.declarativeNetRequest || !chrome.declarativeNetRequest.updateDynamicRules) {
-        blockURL(url, tabId, 'blocked_domain');
-      }
+      blockURL(url, tabId, 'blocked_domain_list');
       return;
     }
 
-    // Check URL for keywords from filters folder only
+    // Check URL for keywords
     for (const keyword of keywords) {
-      if (urlLower.includes(keyword.toLowerCase())) {
-        blockURL(url, tabId, 'keyword');
+      const keywordLower = keyword.toLowerCase();
+      if (urlLower.includes(keywordLower) || pathname.includes(keywordLower)) {
+        blockURL(url, tabId, `keyword_${keyword}`);
         return;
       }
     }
 
+    // Check for SafeSearch enforcement
+    await enforceSafeSearch(url, tabId);
+
   } catch (error) {
     console.error('Error checking URL:', error);
+  }
+}
+
+// Heuristic scanning for suspicious patterns
+function performHeuristicScan(hostname, pathname, searchParams) {
+  let score = 0;
+  const flags = [];
+  
+  // Check for numeric subdomains (common in adult sites)
+  if (/^\d+\.\w+\./.test(hostname)) {
+    score += 10;
+    flags.push('numeric_subdomain');
+  }
+  
+  // Check for suspicious TLDs
+  const suspiciousTLDs = ['.xxx', '.sex', '.adult', '.porn'];
+  if (suspiciousTLDs.some(tld => hostname.endsWith(tld))) {
+    score += 50;
+    flags.push('suspicious_tld');
+  }
+  
+  // Check for video/image galleries in path
+  if (/(gallery|pics|videos|photos|images)\/(adult|sex|xxx|porn|nude|naked)/i.test(pathname)) {
+    score += 30;
+    flags.push('suspicious_gallery_path');
+  }
+  
+  // Check for age verification redirects
+  if (/age.?verify|enter.?site|adult.?only|18.?only/i.test(pathname + searchParams)) {
+    score += 40;
+    flags.push('age_verification_gate');
+  }
+  
+  // Check for common adult site structures
+  if (/\/(videos|movies|clips)\/\d+/.test(pathname)) {
+    score += 15;
+    flags.push('numbered_content_structure');
+  }
+  
+  // Check for excessive subdomains (often used by adult sites)
+  const subdomainCount = hostname.split('.').length - 2;
+  if (subdomainCount > 3) {
+    score += 10;
+    flags.push('excessive_subdomains');
+  }
+  
+  return { score: Math.min(score, 100), flags };
+}
+
+// Enforce SafeSearch on search engines
+async function enforceSafeSearch(url, tabId) {
+  const settings = await chromeAPI.storage.local.get(['safeSearchEnabled']);
+  if (!settings.safeSearchEnabled) return;
+  
+  const urlObj = new URL(url);
+  const hostname = urlObj.hostname.toLowerCase();
+  
+  // Google SafeSearch
+  if (hostname.includes('google.')) {
+    if (!urlObj.searchParams.has('safe', 'active')) {
+      urlObj.searchParams.set('safe', 'active');
+      chromeAPI.tabs.update(tabId, { url: urlObj.toString() });
+    }
+  }
+  
+  // Bing SafeSearch
+  if (hostname.includes('bing.')) {
+    if (!urlObj.searchParams.has('adlt', 'strict')) {
+      urlObj.searchParams.set('adlt', 'strict');
+      chromeAPI.tabs.update(tabId, { url: urlObj.toString() });
+    }
+  }
+  
+  // DuckDuckGo SafeSearch
+  if (hostname.includes('duckduckgo.')) {
+    if (!urlObj.searchParams.has('kp', '1')) {
+      urlObj.searchParams.set('kp', '1');
+      chromeAPI.tabs.update(tabId, { url: urlObj.toString() });
+    }
+  }
+  
+  // Yahoo SafeSearch
+  if (hostname.includes('yahoo.')) {
+    if (!urlObj.searchParams.has('vm', 'r')) {
+      urlObj.searchParams.set('vm', 'r');
+      chromeAPI.tabs.update(tabId, { url: urlObj.toString() });
+    }
   }
 }
 
@@ -632,18 +927,65 @@ async function resetDailyStats() {
   }
 }
 
-// Context menu for quick actions (right-click menu)
+// Enhanced context menu for quick actions
 if (chrome.contextMenus && chrome.contextMenus.create && chrome.contextMenus.onClicked) {
   chrome.runtime.onInstalled.addListener(() => {
+    // Remove existing menus
+    chrome.contextMenus.removeAll();
+    
+    // Create parent menu
     chrome.contextMenus.create({
-      id: 'blockDomain',
-      title: 'Block this domain',
+      id: 'contentShield',
+      title: 'Content Shield',
       contexts: ['page']
     });
-
+    
+    // Block domain
+    chrome.contextMenus.create({
+      id: 'blockDomain',
+      parentId: 'contentShield',
+      title: 'Block this domain permanently',
+      contexts: ['page'],
+      icons: { '16': 'imgs/icon16.png' }
+    });
+    
+    // Whitelist domain
     chrome.contextMenus.create({
       id: 'whitelistDomain',
-      title: 'Whitelist this domain',
+      parentId: 'contentShield',
+      title: 'Whitelist this domain permanently',
+      contexts: ['page']
+    });
+    
+    // Temporary whitelist
+    chrome.contextMenus.create({
+      id: 'tempWhitelistDomain',
+      parentId: 'contentShield',
+      title: 'Allow for 30 minutes',
+      contexts: ['page']
+    });
+    
+    // Separator
+    chrome.contextMenus.create({
+      id: 'separator1',
+      parentId: 'contentShield',
+      type: 'separator',
+      contexts: ['page']
+    });
+    
+    // Quick settings
+    chrome.contextMenus.create({
+      id: 'quickSettings',
+      parentId: 'contentShield',
+      title: 'Open Settings',
+      contexts: ['page']
+    });
+    
+    // Toggle protection
+    chrome.contextMenus.create({
+      id: 'toggleProtection',
+      parentId: 'contentShield',
+      title: 'Toggle Protection',
       contexts: ['page']
     });
   });
@@ -655,28 +997,63 @@ if (chrome.contextMenus && chrome.contextMenus.create && chrome.contextMenus.onC
       const url = new URL(tab.url);
       const hostname = url.hostname;
 
-      if (info.menuItemId === 'blockDomain') {
-        const { customDomains } = await chrome.storage.local.get('customDomains');
-        const domains = customDomains || [];
-        
-        if (!domains.includes(hostname)) {
-          domains.push(hostname);
-          await chrome.storage.local.set({ customDomains: domains });
+      switch (info.menuItemId) {
+        case 'blockDomain':
+          const { customDomains } = await chrome.storage.local.get('customDomains');
+          const domains = customDomains || [];
           
-          // Reload the tab to apply block
-          chrome.tabs.reload(tab.id);
-        }
-      } else if (info.menuItemId === 'whitelistDomain') {
-        const { whitelistedDomains } = await chrome.storage.local.get('whitelistedDomains');
-        const whitelist = whitelistedDomains || [];
-        
-        if (!whitelist.includes(hostname)) {
-          whitelist.push(hostname);
-          await chrome.storage.local.set({ whitelistedDomains: whitelist });
+          if (!domains.includes(hostname)) {
+            domains.push(hostname);
+            await chrome.storage.local.set({ customDomains: domains });
+            await updateBlockingRules();
+            
+            // Show notification
+            showNotification('Domain blocked', `${hostname} has been added to the block list.`);
+            chrome.tabs.reload(tab.id);
+          }
+          break;
           
-          // Reload the tab
+        case 'whitelistDomain':
+          const { whitelistedDomains } = await chrome.storage.local.get('whitelistedDomains');
+          const whitelist = whitelistedDomains || [];
+          
+          if (!whitelist.includes(hostname)) {
+            whitelist.push(hostname);
+            await chrome.storage.local.set({ whitelistedDomains: whitelist });
+            await updateBlockingRules();
+            
+            showNotification('Domain whitelisted', `${hostname} has been permanently whitelisted.`);
+            chrome.tabs.reload(tab.id);
+          }
+          break;
+          
+        case 'tempWhitelistDomain':
+          const { temporarilyWhitelisted } = await chrome.storage.local.get('temporarilyWhitelisted');
+          const tempList = temporarilyWhitelisted || [];
+          
+          // Remove any existing entry for this domain
+          const filtered = tempList.filter(e => e.domain !== hostname);
+          filtered.push({ domain: hostname, timestamp: Date.now() });
+          
+          await chrome.storage.local.set({ temporarilyWhitelisted: filtered });
+          showNotification('Temporary access granted', `${hostname} is allowed for 30 minutes.`);
           chrome.tabs.reload(tab.id);
-        }
+          break;
+          
+        case 'quickSettings':
+          chrome.runtime.openOptionsPage();
+          break;
+          
+        case 'toggleProtection':
+          const current = await chrome.storage.local.get('enabled');
+          const newState = !current.enabled;
+          await chrome.storage.local.set({ enabled: newState });
+          await updateBlockingRules();
+          
+          const stats = await getStats();
+          updateBadge(newState ? stats.blockedToday : 0);
+          showNotification('Protection toggled', newState ? 'Content Shield is now ON' : 'Content Shield is now OFF');
+          break;
       }
     } catch (error) {
       console.error('Context menu error:', error);
@@ -686,10 +1063,264 @@ if (chrome.contextMenus && chrome.contextMenus.create && chrome.contextMenus.onC
   console.warn('Context menus API not available in this environment.');
 }
 
+// Show notification helper
+function showNotification(title, message) {
+  if (chrome.notifications) {
+    chrome.notifications.create({
+      type: 'basic',
+      iconUrl: chrome.runtime.getURL('imgs/icon48.png'),
+      title: title,
+      message: message
+    });
+  }
+}
+
+// Listen for keyboard shortcuts
+chrome.commands?.onCommand.addListener(async (command) => {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  
+  switch (command) {
+    case 'toggle-protection':
+      const current = await chrome.storage.local.get('enabled');
+      const newState = !current.enabled;
+      await chrome.storage.local.set({ enabled: newState });
+      await updateBlockingRules();
+      
+      const stats = await getStats();
+      updateBadge(newState ? stats.blockedToday : 0);
+      showNotification('Protection toggled', newState ? 'Content Shield is now ON' : 'Content Shield is now OFF');
+      break;
+      
+    case 'open-settings':
+      chrome.runtime.openOptionsPage();
+      break;
+      
+    case 'quick-whitelist':
+      if (tab && tab.url) {
+        const url = new URL(tab.url);
+        const { whitelistedDomains } = await chrome.storage.local.get('whitelistedDomains');
+        const whitelist = whitelistedDomains || [];
+        
+        if (!whitelist.includes(url.hostname)) {
+          whitelist.push(url.hostname);
+          await chrome.storage.local.set({ whitelistedDomains: whitelist });
+          await updateBlockingRules();
+          showNotification('Domain whitelisted', `${url.hostname} has been whitelisted.`);
+        }
+      }
+      break;
+  }
+});
+
 // Initialize badge on startup
 chrome.runtime.onStartup.addListener(async () => {
   const stats = await getStats();
   updateBadge(stats.blockedToday);
+  
+  // Clean up expired temporary whitelists
+  const { temporarilyWhitelisted } = await chrome.storage.local.get('temporarilyWhitelisted');
+  if (temporarilyWhitelisted) {
+    const now = Date.now();
+    const valid = temporarilyWhitelisted.filter(e => now - e.timestamp < 30 * 60 * 1000);
+    await chrome.storage.local.set({ temporarilyWhitelisted: valid });
+  }
 });
 
-console.log('Content Shield background service worker initialized');
+// Handle service worker lifecycle
+self.addEventListener('install', (event) => {
+  console.log('Content Shield service worker installed');
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  console.log('Content Shield service worker activated');
+  event.waitUntil(clients.claim());
+});
+
+// Web request monitoring for additional blocking (where supported)
+if (chrome.webRequest && chrome.webRequest.onBeforeRequest) {
+  chrome.webRequest.onBeforeRequest.addListener(
+    (details) => {
+      // Additional request blocking logic can be added here
+      return { cancel: false };
+    },
+    { urls: ['<all_urls>'] },
+    ['blocking']
+  );
+}
+
+// ============================================
+// AI Integration and Bad Boy Notification System
+// ============================================
+
+const AIManager = {
+  enabled: true,
+  badBoyCount: 0,
+  aiStats: {
+    totalAnalyzed: 0,
+    blockedByAI: 0,
+    falsePositives: 0
+  },
+
+  async init() {
+    const { aiSettings, badBoyCount } = await chrome.storage.local.get(['aiSettings', 'badBoyCount']);
+    if (aiSettings) {
+      this.enabled = aiSettings.enabled !== false;
+    }
+    this.badBoyCount = badBoyCount || 0;
+    console.log('🧠 AI Manager initialized. Bad Boy count:', this.badBoyCount);
+  },
+
+  async analyzeURL(url, tabId) {
+    if (!this.enabled) return { blocked: false, confidence: 0 };
+
+    // Get filter data
+    const { filters, customDomains, customKeywords } = await chrome.storage.local.get([
+      'filters', 'customDomains', 'customKeywords'
+    ]);
+
+    const urlLower = url.toLowerCase();
+    let confidence = 0;
+    let matchedKeywords = [];
+
+    // Domain matching (high weight)
+    const allDomains = [...(filters?.adult || []), ...(customDomains || [])];
+    for (const domain of allDomains) {
+      if (urlLower.includes(domain.toLowerCase())) {
+        confidence += 0.6;
+        matchedKeywords.push(domain);
+        break;
+      }
+    }
+
+    // Keyword matching
+    const allKeywords = [...(filters?.keywords || []), ...(customKeywords || [])];
+    for (const keyword of allKeywords) {
+      if (urlLower.includes(keyword.toLowerCase())) {
+        confidence += 0.15;
+        matchedKeywords.push(keyword);
+      }
+    }
+
+    // Cap at 1.0
+    confidence = Math.min(confidence, 1.0);
+
+    this.aiStats.totalAnalyzed++;
+
+    if (confidence >= 0.7) {
+      this.aiStats.blockedByAI++;
+      await this.showBadBoyNotification(url, confidence, matchedKeywords, tabId);
+    }
+
+    return {
+      blocked: confidence >= 0.7,
+      confidence: confidence,
+      matchedKeywords: matchedKeywords
+    };
+  },
+
+  async showBadBoyNotification(url, confidence, keywords, tabId) {
+    this.badBoyCount++;
+    await chrome.storage.local.set({ badBoyCount: this.badBoyCount });
+
+    const hostname = new URL(url).hostname;
+
+    // Show browser notification
+    const title = confidence >= 0.9 ? '🔴 BAD BOY DETECTED!' : '⚠️ BAD BOY ALERT!';
+    const message = `Blocked: ${hostname}\nAI Confidence: ${(confidence * 100).toFixed(1)}%\nAdult content detected!`;
+
+    await chrome.notifications.create(`bad-boy-${Date.now()}`, {
+      type: 'basic',
+      iconUrl: 'imgs/icon128.png',
+      title: title,
+      message: message,
+      priority: 2,
+      requireInteraction: confidence >= 0.9,
+      buttons: [
+        { title: 'Go Back' },
+        { title: 'Dismiss' }
+      ]
+    });
+
+    // Send to content script for popup
+    try {
+      await chrome.tabs.sendMessage(tabId, {
+        action: 'showBadBoyPopup',
+        notification: {
+          url: url,
+          confidence: confidence,
+          keywords: keywords,
+          badBoyCount: this.badBoyCount,
+          message: confidence >= 0.9 
+            ? '🔴 BAD BOY! High-risk adult content blocked! Stay safe! 🛡️'
+            : '⚠️ BAD BOY! Adult content detected and blocked! 🚫'
+        }
+      });
+    } catch (e) {
+      // Tab may not have content script loaded
+    }
+
+    console.log(`🔴 BAD BOY #${this.badBoyCount}: ${hostname} blocked (${(confidence * 100).toFixed(1)}%)`);
+  },
+
+  getStats() {
+    return {
+      ...this.aiStats,
+      badBoyCount: this.badBoyCount,
+      enabled: this.enabled
+    };
+  }
+};
+
+// Initialize AI on startup
+chrome.runtime.onStartup.addListener(() => AIManager.init());
+chrome.runtime.onInstalled.addListener(() => AIManager.init());
+
+// Listen for navigation events to run AI analysis
+chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
+  if (details.frameId === 0) { // Main frame only
+    const result = await AIManager.analyzeURL(details.url, details.tabId);
+    if (result.blocked) {
+      // Redirect to blocked page
+      chrome.tabs.update(details.tabId, {
+        url: chrome.runtime.getURL(`blocked.html?url=${encodeURIComponent(details.url)}&ai=true&confidence=${result.confidence}`)
+      });
+    }
+  }
+}, { url: [{ schemes: ['http', 'https'] }] });
+
+// Handle notification button clicks
+chrome.notifications.onButtonClicked.addListener((notificationId, buttonIndex) => {
+  if (notificationId.startsWith('bad-boy-')) {
+    if (buttonIndex === 0) {
+      // Go back button
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs[0]) {
+          chrome.tabs.goBack(tabs[0].id);
+        }
+      });
+    }
+    chrome.notifications.clear(notificationId);
+  }
+});
+
+// Message handler for AI queries
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === 'aiCheck') {
+    AIManager.analyzeURL(message.url, sender.tab?.id).then(result => {
+      sendResponse(result);
+    });
+    return true;
+  } else if (message.action === 'getAIStats') {
+    sendResponse(AIManager.getStats());
+  } else if (message.action === 'getBadBoyCount') {
+    sendResponse({ count: AIManager.badBoyCount });
+  } else if (message.action === 'resetBadBoyCount') {
+    AIManager.badBoyCount = 0;
+    chrome.storage.local.set({ badBoyCount: 0 });
+    sendResponse({ reset: true });
+  }
+});
+
+console.log('🛡️ Content Shield background service worker initialized v2.0 with AI');
+console.log('🧠 AI-powered Bad Boy detection system active');

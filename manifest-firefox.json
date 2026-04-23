@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Content Shield",
-  "version": "1.0.0",
-  "description": "A powerful content filtering extension to protect your browsing experience and block inappropriate websites.",
+  "name": "Content Shield - Advanced Porn Blocker",
+  "version": "2.0.0",
+  "description": "Advanced content filtering extension with AI-powered detection to block pornography, adult content, and inappropriate websites.",
   
   "permissions": [
     "storage",
@@ -11,6 +11,10 @@
     "webRequest",
     "webRequestBlocking",
     "alarms",
+    "contextMenus",
+    "notifications",
+    "activeTab",
+    "history",
     "<all_urls>"
   ],
   
@@ -23,29 +27,71 @@
     {
       "matches": ["<all_urls>"],
       "js": ["browser-polyfill.js", "utils.js", "content.js"],
+      "css": ["content-shield.css"],
       "run_at": "document_start",
-      "all_frames": true
+      "all_frames": true,
+      "match_about_blank": true
     }
   ],
   
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "Content Shield"
+    "default_title": "Content Shield - Protection Active",
+    "default_icon": {
+      "16": "imgs/icon16.png",
+      "32": "imgs/icon32.png",
+      "48": "imgs/icon48.png",
+      "128": "imgs/icon128.png"
+    }
   },
   
   "options_page": "options.html",
   
   "icons": {
+    "16": "imgs/icon16.png",
+    "32": "imgs/icon32.png",
+    "48": "imgs/icon48.png",
     "128": "imgs/icon128.png"
   },
   
   "web_accessible_resources": [
     "blocked.html",
     "blocked.css",
-    "blocked.js"
+    "blocked.js",
+    "imgs/*.png",
+    "imgs/*.svg",
+    "filters/*.json",
+    "content-shield.css"
   ],
   
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.github.com;",
+  
+  "commands": {
+    "toggle-protection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P"
+      },
+      "description": "Toggle content protection on/off"
+    },
+    "open-settings": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Open extension settings"
+    },
+    "quick-whitelist": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+W"
+      },
+      "description": "Whitelist current site"
+    }
+  },
+  
+  "short_name": "ContentShield",
+  
+  "author": "Devs-s",
+  
+  "homepage_url": "https://github.com/Devs-s/ContentShield-extension",
   
   "applications": {
     "gecko": {

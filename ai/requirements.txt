@@ -1,0 +1,17 @@
+# Content Shield AI Requirements
+# Python dependencies for AI-powered adult content detection
+
+# Core dependencies
+numpy>=1.21.0
+requests>=2.26.0
+
+# Optional dependencies for enhanced functionality
+# Uncomment if needed:
+# scikit-learn>=1.0.0  # For advanced ML algorithms
+# beautifulsoup4>=4.10.0  # For web scraping capabilities
+# pillow>=8.3.0  # For image analysis (if implementing)
+# nltk>=3.6  # For natural language processing
+
+# System notification support (optional)
+# pynotify2>=0.3; sys_platform == 'linux'
+# win10toast>=0.9; sys_platform == 'win32'

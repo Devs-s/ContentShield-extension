@@ -1,0 +1,1416 @@
+[
+  {
+    "id": 100,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*pornhub\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 101,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*xvideos\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 102,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*xhamster\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 103,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*redtube\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 104,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*youporn\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 105,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*tube8\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 106,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*spankbang\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 107,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*chaturbate\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 108,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*stripchat\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 109,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*bongacams\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 110,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*livejasmin\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 111,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*camsoda\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 112,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*myfreecams\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 113,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*cam4\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 114,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*onlyfans\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 115,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*fansly\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 116,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*manyvids\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 117,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*clips4sale\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 118,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*brazzers\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 119,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*bangbros\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 120,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*realitykings\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 121,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*naughtyamerica\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 122,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*digitalplayground\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 123,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*evilangel\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 124,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*julesjordan\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 125,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*tnaflix\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 126,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*empflix\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 127,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*eporner\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 128,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*beeg\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 129,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*xnxx\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 130,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*xxnx\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 131,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*motherless\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 132,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*4tube\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 133,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*porntube\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 134,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*drtuber\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 135,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*fapdu\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 136,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*alotporn\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 137,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*sunporno\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 138,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*porn****\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 139,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*brazzersnetwork\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 140,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*mofos\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 141,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*babes\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 142,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*kink\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 143,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*fetish\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 144,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*hentaihaven\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 145,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*hanime\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 146,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*underhentai\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 147,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*hentaimama\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 148,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*gelbooru\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 149,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*danbooru\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 150,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*rule34\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 151,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*e621\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 152,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*fakku\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 153,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*irodoricomics\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 154,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*8muses\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 155,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*multporn\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 156,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*nhentai\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 157,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*hitomi\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 158,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*imhentai\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 159,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*toonily\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 160,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*manhwa18\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 161,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*webtoonxyz\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 162,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*adult.*\\.(com|net|org|tv|xxx|sex)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 163,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*xxx.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 164,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*porn.*\\.(com|net|org|tv|xxx)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 165,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*sex.*\\.(com|net|org|tv|cam|xxx)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 166,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*nude.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 167,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*naked.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 168,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*erotic.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 169,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*cam.*\\.(com|net|org|tv|xxx)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 170,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*escort.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 171,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*hookup.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 172,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*dating.*sex.*\\.(com|net|org)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 173,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*swinger.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 174,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*sugar.*daddy.*\\.(com|net|org)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 175,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*sugar.*baby.*\\.(com|net|org)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 176,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*seeking.*arrangement\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 177,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*ashley.*madison\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 178,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*adult.*friend.*finder\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 179,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*fetlife\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 180,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*collarspace\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 181,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*alt\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 182,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*dominatrix\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 183,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*bdsm.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 184,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*bondage.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 185,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*stripper.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 186,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*peepshow\\.",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 187,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*peep.*show.*\\.(com|net|org)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 188,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*voyeur.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 189,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*upskirt.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 190,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*downblouse.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 191,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*jerk.*off.*\\.(com|net|org)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 192,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*masturbat.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 193,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*orgasm.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 194,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*ejaculat.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 195,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*penis.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 196,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*vagina.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 197,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*dick.*pic.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 198,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*cock.*pic.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 199,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*breast.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 200,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked.html"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://([a-z0-9-]+\\.)*boob.*\\.(com|net|org|tv)",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]

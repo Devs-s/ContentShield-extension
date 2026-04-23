@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Content Shield",
-  "version": "1.0.0",
-  "description": "A powerful content filtering extension to protect your browsing experience and block inappropriate websites.",
+  "name": "Content Shield - Advanced Porn Blocker",
+  "version": "2.0.0",
+  "description": "Advanced content filtering extension with AI-powered detection to block pornography, adult content, and inappropriate websites.",
   
   "permissions": [
     "storage",
@@ -10,7 +10,14 @@
     "webNavigation",
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
-    "alarms"
+    "declarativeNetRequestWithHostAccess",
+    "alarms",
+    "contextMenus",
+    "notifications",
+    "scripting",
+    "activeTab",
+    "history",
+    "webRequest"
   ],
   
   "host_permissions": [
@@ -18,26 +25,38 @@
   ],
   
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["utils.js", "content.js"],
+      "js": ["browser-polyfill.js", "utils.js", "ai-bridge.js", "content.js"],
+      "css": ["content-shield.css", "bad-boy-popup.css"],
       "run_at": "document_start",
-      "all_frames": true
+      "all_frames": true,
+      "match_about_blank": true
     }
   ],
   
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Content Shield"
+    "default_title": "Content Shield - Protection Active",
+    "default_icon": {
+      "16": "imgs/icon16.png",
+      "32": "imgs/icon32.png",
+      "48": "imgs/icon48.png",
+      "128": "imgs/icon128.png"
+    }
   },
   
   "options_page": "options.html",
   
   "icons": {
+    "16": "imgs/icon16.png",
+    "32": "imgs/icon32.png",
+    "48": "imgs/icon48.png",
     "128": "imgs/icon128.png"
   },
   
@@ -47,6 +66,11 @@
         "id": "ruleset_1",
         "enabled": true,
         "path": "rules.json"
+      },
+      {
+        "id": "ruleset_2",
+        "enabled": true,
+        "path": "rules-advanced.json"
       }
     ]
   },
@@ -56,15 +80,51 @@
       "resources": [
         "blocked.html",
         "blocked.css",
-        "blocked.js"
+        "blocked.js",
+        "bad-boy-popup.css",
+        "bad-boy-popup.js",
+        "ai-bridge.js",
+        "imgs/*.png",
+        "imgs/*.svg",
+        "filters/*.json",
+        "ai/*.py",
+        "ai/*.json"
       ],
       "matches": ["<all_urls>"]
     }
   ],
   
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.github.com;",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
   },
   
-  "minimum_chrome_version": "88"
+  "minimum_chrome_version": "88",
+  
+  "commands": {
+    "toggle-protection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P"
+      },
+      "description": "Toggle content protection on/off"
+    },
+    "open-settings": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Open extension settings"
+    },
+    "quick-whitelist": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+W"
+      },
+      "description": "Whitelist current site"
+    }
+  },
+  
+  "short_name": "ContentShield",
+  
+  "author": "Devs-s",
+  
+  "homepage_url": "https://github.com/Devs-s/ContentShield-extension"
 }

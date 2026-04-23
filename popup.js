@@ -247,6 +247,12 @@ function attachEventListeners() {
   // Quick actions
   document.getElementById('reportBtn')?.addEventListener('click', reportSite);
   document.getElementById('feedbackBtn')?.addEventListener('click', sendFeedback);
+  
+  // Add temporary whitelist button if it exists
+  document.getElementById('tempWhitelistBtn')?.addEventListener('click', tempWhitelistSite);
+  
+  // Add block site button if it exists
+  document.getElementById('blockSiteBtn')?.addEventListener('click', blockCurrentSite);
 }
 
 // ============================================
@@ -271,15 +277,102 @@ async function toggleProtection() {
     
     // Show notification
     const message = currentSettings.enabled 
-      ? 'Content filtering enabled' 
-      : 'Content filtering disabled';
+      ? '✅ Content Shield enabled' 
+      : '⚠️ Content Shield disabled';
     showToast(message);
+    
+    // Update icon badge
+    updateBadgeForAllTabs();
     
   } catch (e) {
     Utils.log('Error toggling protection: ' + e, 'error');
     showToast('Error toggling protection', 'error');
   } finally {
     document.getElementById('toggleBtn').disabled = false;
+  }
+}
+
+// ============================================
+// Temporary Whitelist Current Site (30 min)
+// ============================================
+
+async function tempWhitelistSite() {
+  if (!currentTab || !currentTab.url) return;
+  
+  try {
+    const domain = Utils.getRootDomain(currentTab.url);
+    await Utils.addTemporarilyWhitelisted(domain);
+    
+    showToast(`⏱️ ${domain} allowed for 30 minutes`);
+    
+    // Reload tab after short delay
+    setTimeout(() => {
+      chrome.tabs.reload(currentTab.id);
+      window.close();
+    }, 1500);
+    
+  } catch (e) {
+    Utils.log('Error temp whitelisting: ' + e, 'error');
+    showToast('Error allowing site', 'error');
+  }
+}
+
+// ============================================
+// Block Current Site
+// ============================================
+
+async function blockCurrentSite() {
+  if (!currentTab || !currentTab.url) return;
+  
+  try {
+    const domain = Utils.getRootDomain(currentTab.url);
+    
+    // Add to custom blocked domains
+    const domains = currentSettings.customDomains || [];
+    if (!domains.includes(domain)) {
+      domains.push(domain);
+      await Utils.updateSetting('customDomains', domains);
+      
+      // Notify background to update rules
+      chrome.runtime.sendMessage({ action: 'whitelistUpdated' });
+      
+      showToast(`🚫 ${domain} blocked`);
+      
+      // Reload to apply block
+      setTimeout(() => {
+        chrome.tabs.reload(currentTab.id);
+      }, 1000);
+    } else {
+      showToast('Site already blocked');
+    }
+    
+  } catch (e) {
+    Utils.log('Error blocking site: ' + e, 'error');
+    showToast('Error blocking site', 'error');
+  }
+}
+
+// ============================================
+// Update Badge for All Tabs
+// ============================================
+
+async function updateBadgeForAllTabs() {
+  try {
+    const tabs = await chrome.tabs.query({});
+    const stats = await Utils.getStatistics();
+    
+    for (const tab of tabs) {
+      if (currentSettings.enabled) {
+        await chrome.action.setBadgeText({ 
+          text: stats.blockedToday > 0 ? stats.blockedToday.toString() : '',
+          tabId: tab.id 
+        });
+      } else {
+        await chrome.action.setBadgeText({ text: '', tabId: tab.id });
+      }
+    }
+  } catch (e) {
+    console.error('Error updating badges:', e);
   }
 }
 
